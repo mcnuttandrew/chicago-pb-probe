@@ -1,55 +1,43 @@
 <script lang="ts">
+  import { Router, Link, Route } from "svelte-routing";
+  import About from "./pages/About.svelte";
+  import Demographics from "./pages/Demographics.svelte";
+  import Submit from "./pages/Submit.svelte";
+  import UtilElicitation from "./pages/UtilElicitation.svelte";
+  import Feedback from "./pages/Feedback.svelte";
   import TailwindCss from "./TailwindCSS.svelte";
-  import svelteLogo from "./assets/svelte.svg";
-  import viteLogo from "/vite.svg";
-  import Counter from "./lib/Counter.svelte";
+
+  export let url = location.pathname;
 </script>
 
 <TailwindCss />
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a
-      href="https://github.com/sveltejs/kit#readme"
-      target="_blank"
-      rel="noreferrer"
+<main class="w-full h-full flex flex-col items-center">
+  <Router {url}>
+    <nav
+      class="w-full bg-black text-white flex flex-row justify-between px-2 py-1"
     >
-      SvelteKit
-    </a>
-    , the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+      <div>
+        <Link to="/">About</Link>
+        <Link to="/util-elicit">Util Elicitation</Link>
+        <Link to="/demographics">Demographics</Link>
+        <Link to="/feedback">Feedback</Link>
+        <Link to="/submit">Submit</Link>
+      </div>
+      <div>
+        <p id="language">English | Español</p>
+      </div>
+    </nav>
+    <div class="w-full flex flex-col px-32 py-8">
+      <div>
+        <h1 class="text-5xl font-bold">49th Ward Participatory Budgeting</h1>
+        <h2 class="text-xl">2022 / 2023 cycle</h2>
+      </div>
+      <Route path="/" component={About} />
+      <Route path="/demographics" component={Demographics} />
+      <Route path="/feedback" component={Feedback} />
+      <Route path="/util-elicit" component={UtilElicitation} />
+      <Route path="/submit" component={Submit} />
+    </div>
+  </Router>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
