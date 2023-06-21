@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Link } from "svelte-routing";
+  import { buttonStyle } from "../lib/constants";
 </script>
 
 <div>
@@ -29,9 +30,7 @@
 
   <div class="w-full flex items-center justify-center">
     <Link to="/util-elicit">
-      <div class="border-blue-700 border-2 rounded bg-blue-200 px-8 py-4">
-        I'm ready to allocate
-      </div>
+      <div class={buttonStyle}>I'm ready to allocate</div>
     </Link>
   </div>
 </div>
