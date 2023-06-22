@@ -13,11 +13,11 @@
     {#if !showNext}
       <h1>Click a project to add it</h1>
     {/if}
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-between">
       {#each Object.keys(explanations).filter((x) => !sortOrder.find((y) => x === y)) as item}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
-          class="h-32 w-32 border-2 border-black rounded text-center flex items-center justify-center cursor-pointer"
+          class="h-32 w-32 border-2 border-black rounded text-center flex items-center justify-center cursor-pointer bg-violet-200"
           on:click={() => {
             store.setSort([...sortOrder, item]);
           }}
