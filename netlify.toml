@@ -4,3 +4,7 @@
     envFiles=[".env.development"]
     framework = "vite"
     
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
