@@ -54,7 +54,11 @@
 </script>
 
 <div>
-  <p>Voting has concluded for the 2022/2023 Participatory Budgeting cycle.</p>
+  <!-- <p>Voting has concluded for the 2022/2023 Participatory Budgeting cycle.</p> -->
+  <p>
+    Thank you for participating! You can explore some of the context of these
+    values below
+  </p>
 
   <p>
     Explore the projects that received the most votes and the allocations

@@ -1,13 +1,18 @@
 <script lang="ts">
+  import { Link } from "svelte-routing";
+  import { buttonStyle } from "../lib/constants";
 </script>
 
 <div class="flex flex-col">
-  <button>submit</button>
-
-  <h1>Thank you for your inputs!</h1>
-  <div>
-    Please check back on December 5, 2022 to see the ward's final voting
-    results. If you registered your email address, you will receive updates on
-    the results.
-  </div>
+  <h1>
+    Thank you for your inputs! We have logged them and will analyze them shortly
+  </h1>
+  <div>To better understand the context of some of our results please see</div>
+  <Link
+    class={`${buttonStyle} flex items-center justify-center`}
+    to="/feedback"
+  >
+    this explorer
+  </Link>
+  <div>to learn more</div>
 </div>

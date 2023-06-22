@@ -5,6 +5,7 @@ interface StoreData {
   allocations: Record<string, number>;
   postCheckAllocations: Record<string, number>;
   demographics: Record<string, string>;
+  userId: string;
 }
 
 const InitialStore = {
@@ -12,6 +13,7 @@ const InitialStore = {
   allocations: {},
   postCheckAllocations: {},
   demographics: {},
+  userId: `${Math.floor(Math.random() * 1000000)}`,
 };
 
 function createStore() {
@@ -26,21 +28,22 @@ function createStore() {
       return newVal;
     });
 
-  const setIn = (group: keyof StoreData) => (key: string, val: number) =>
+  const setIn = (group: string) => (key: string, val: number) =>
     persistUpdate((oldStore) => ({
       ...oldStore,
       [group]: { ...oldStore[group], [key]: val },
     }));
+  const simpleSet = (key: keyof StoreData) => (val: any) =>
+    persistUpdate((n) => ({ ...n, [key]: val }));
 
   return {
     subscribe,
-    setSort: (sortOrder: string[]) =>
-      persistUpdate((n) => ({ ...n, sortOrder })),
-    setAllocation: (allocations: Record<string, number>) =>
-      persistUpdate((n) => ({ ...n, allocations })),
+    setSort: simpleSet("sortOrder"),
+    setAllocation: simpleSet("allocations"),
+    setPostAllocation: simpleSet("postCheckAllocations"),
+    setDemographics: simpleSet("demographics"),
     setAllocationKey: setIn("allocations"),
-    setPostAllocationKey: setIn("allocations"),
-    setDemographics: setIn("demographics"),
+    setPostAllocationKey: setIn("postCheckAllocations"),
     reset: () => set({ ...InitialStore }),
   };
 }

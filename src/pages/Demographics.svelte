@@ -1,6 +1,8 @@
 <script lang="ts">
   import { Link } from "svelte-routing";
   import { store } from "../lib/store";
+  import { onMount } from "svelte";
+  import { buttonStyle } from "../lib/constants";
 
   const questions = [
     {
@@ -45,15 +47,33 @@
     },
   ];
 
-  // $: answers = $store.demographics;
-  // $: {
-
-  // }
-
-  // let answers = Object.fromEntries(questions.map((x) => [x.question, ""]));
+  let answers = Object.fromEntries(questions.map((x) => [x.question, ""]));
   let otherValue = "Other";
-  $: console.log($store);
-  $: allAnswered = Object.values($store.demographics).every((x) => x);
+  $: allAnswered = Object.values(answers).every((x) => x);
+  $: allAnswered === true && store.setDemographics(answers);
+
+  onMount(() => {
+    if (Object.values($store.demographics).filter((x) => x).length) {
+      answers = $store.demographics;
+    }
+  });
+
+  const submit = (data) => {
+    return fetch("/.netlify/functions/catch", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(data),
+    })
+      .then((x) => x.json())
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 </script>
 
 <div class="flex flex-col">
@@ -68,7 +88,7 @@
               <div class="flex">
                 <input
                   type="radio"
-                  bind:group={$store.demographics[question]}
+                  bind:group={answers[question]}
                   name={`${idx}-response`}
                   value={otherValue}
                 />
@@ -82,7 +102,7 @@
             <label class="mr-5">
               <input
                 type="radio"
-                bind:group={$store.demographics[question]}
+                bind:group={answers[question]}
                 name={`${idx}-response`}
                 value={option}
               />
@@ -94,6 +114,8 @@
     </div>
   {/each}
   {#if allAnswered}
-    <Link to={"/feedback"}>Next</Link>
+    <Link to={"/feedback"} class={buttonStyle} on:click={() => submit($store)}>
+      Submit Answers
+    </Link>
   {/if}
 </div>

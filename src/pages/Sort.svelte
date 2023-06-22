@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Link } from "svelte-routing";
   import ElicitHeader from "../lib/ElicitHeader.svelte";
   import { explanations, buttonStyle } from "../lib/constants";
   import SortableList from "svelte-sortable-list";
@@ -53,7 +52,6 @@
 </div>
 
 {#if showNext}
-  <Link to="/allocate">
-    <button class={buttonStyle}>Im happy with this sort order</button>
-  </Link>
+  <!-- hard linked (rather than using soft Links bc of animation sync bugs that cause faulty renders) -->
+  <a href="/allocate" class={buttonStyle}>Im happy with this sort order</a>
 {/if}
