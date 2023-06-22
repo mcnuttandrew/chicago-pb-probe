@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Link } from "svelte-routing";
+  import { store } from "../lib/store";
 
   const questions = [
     {
@@ -44,9 +45,15 @@
     },
   ];
 
-  let answers = Object.fromEntries(questions.map((x) => [x.question, ""]));
+  // $: answers = $store.demographics;
+  // $: {
+
+  // }
+
+  // let answers = Object.fromEntries(questions.map((x) => [x.question, ""]));
   let otherValue = "Other";
-  $: allAnswered = Object.values(answers).every((x) => x);
+  $: console.log($store);
+  $: allAnswered = Object.values($store.demographics).every((x) => x);
 </script>
 
 <div class="flex flex-col">
@@ -61,7 +68,7 @@
               <div class="flex">
                 <input
                   type="radio"
-                  bind:group={answers[question]}
+                  bind:group={$store.demographics[question]}
                   name={`${idx}-response`}
                   value={otherValue}
                 />
@@ -75,7 +82,7 @@
             <label class="mr-5">
               <input
                 type="radio"
-                bind:group={answers[question]}
+                bind:group={$store.demographics[question]}
                 name={`${idx}-response`}
                 value={option}
               />

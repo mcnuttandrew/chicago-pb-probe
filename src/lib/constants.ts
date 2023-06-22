@@ -17,5 +17,16 @@ export const explanations = {
     "Install curb cuts and crosswalk at 7557 N. Paulina to allow people with strollers or mobility impairments to access the north end of the train station.",
 };
 
+export const minimums = {
+  "Street Resurfacing": 0,
+  "Bike Lanes": 240000,
+  "School Improvements": 245000,
+  "Picnic Tables": 40000,
+  "Street Lights": 0,
+  "Food Pantry": 0,
+  "Street Murals": 0,
+  "Curb Cuts": 0,
+};
+
 export const buttonStyle =
   "border-blue-700 border-2 rounded bg-blue-200 px-8 py-4";

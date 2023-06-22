@@ -29,7 +29,7 @@
   <h2 id="voting">Voting Period: October 20 - November 30, 2022</h2>
 
   <div class="w-full flex items-center justify-center">
-    <Link to="/util-elicit">
+    <Link to="/sort">
       <div class={buttonStyle}>I'm ready to allocate</div>
     </Link>
   </div>
