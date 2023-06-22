@@ -32,9 +32,6 @@
         <Link to="/submit">Submit</Link>
         <Link to="/feedback">Feedback</Link>
       </div>
-      <!--<div>
-        <p id="language">English | Español</p>
-      </div> -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div
         on:click={() => {

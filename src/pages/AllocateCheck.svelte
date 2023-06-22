@@ -9,20 +9,6 @@
 
   $: sortOrder = $store.sortOrder;
   $: allocations = $store.postCheckAllocations;
-  $: {
-    // let localSort = sortOrder;
-    // if (localSort.length !== Object.keys(explanations).length) {
-    //   localSort = Object.keys(explanations);
-    //   store.setSort(localSort);
-    // }
-    // if (!localSort.every((key) => Number.isFinite(allocations[key]))) {
-    //   const newAllocations = {
-    //     ...Object.fromEntries(localSort.map((x) => [x, 0])),
-    //     ...allocations,
-    //   };
-    //   store.setAllocation(newAllocations);
-    // }
-  }
   const MILLION = 1000000;
   const sum = (arr: number[]) => arr.reduce((x, y) => x + y, 0);
   $: totalAllocation = sum(Object.values(allocations));

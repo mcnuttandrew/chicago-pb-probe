@@ -34,8 +34,6 @@
   $: budgetRemaining = MILLION - totalAllocation;
 
   $: loading = Object.keys(allocations).length === 0;
-
-  $: console.log(allocations, budgetRemaining);
 </script>
 
 <div>
