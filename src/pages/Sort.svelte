@@ -5,27 +5,46 @@
   import { store } from "../lib/store";
   $: sortOrder = $store.sortOrder;
   $: showNext = sortOrder.length === Object.keys(explanations).length;
+  let hoveredItem: false | string = false;
 </script>
 
 <div>
   <ElicitHeader />
   <div class="my-8">
     {#if !showNext}
-      <h1>Click a project to add it</h1>
+      <h1>
+        Order the projects my your preference for them. Click a project to add
+        it to your order. You'll need to sort all of them to move on.
+      </h1>
     {/if}
     <div class="flex flex-wrap justify-between">
       {#each Object.keys(explanations).filter((x) => !sortOrder.find((y) => x === y)) as item}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
-          class="h-32 w-32 border-2 border-black rounded text-center flex items-center justify-center cursor-pointer bg-violet-200"
+          class="h-32 w-32 border-2 border-black rounded text-center flex items-center justify-center cursor-pointer bg-violet-200 my-2"
           on:click={() => {
             store.setSort([...sortOrder, item]);
+          }}
+          on:mouseenter={() => {
+            hoveredItem = item;
+          }}
+          on:mouseleave={() => {
+            hoveredItem = false;
           }}
         >
           {item}
         </div>
       {/each}
     </div>
+    {#if !showNext}
+      <div class="italic h-20">
+        {#if hoveredItem}
+          {explanations[hoveredItem]}
+        {:else}
+          Hover over an a card to see an explanation for it
+        {/if}
+      </div>
+    {/if}
   </div>
   <div class="my-8">
     {#if sortOrder.length}
