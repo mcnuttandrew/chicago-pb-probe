@@ -2,6 +2,7 @@
   import { scaleBand, scaleLinear } from "d3-scale";
   import { format } from "d3-format";
   import { minimums, explanations } from "./constants";
+  import ChartBar from "./ChartBar.svelte";
 
   export let sortOrder: string[];
   export let allocations: Record<string, number>;
@@ -9,8 +10,8 @@
   export let setAllocationValue: (key: string, val: number) => void;
 
   const height = 600;
-  const width = 1000;
-  const margin = { left: 50, right: 50, top: 50, bottom: 50 };
+  const width = 800;
+  const margin = { left: 50, right: 50, top: 100, bottom: 50 };
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
   const MILLION = 1000000;
@@ -31,6 +32,7 @@
   $: budgetRemaining = MILLION - totalAllocation;
 
   let target: string | null = null;
+  let tutorialDismissed = false;
 </script>
 
 <svg {width} {height}>
@@ -60,9 +62,6 @@
         on:mouseenter={() => {
           target = key;
         }}
-        on:mouseleave={() => {
-          // target = null;
-        }}
         on:mousedown={() => {
           state = "dragging";
         }}
@@ -72,7 +71,6 @@
             const bbox = e.target.getBoundingClientRect();
             const yVal = e.y - bbox.y;
             setAllocationValue(key, yScale.invert(innerHeight - yVal));
-            // allocations[key] = yScale.invert(innerHeight - yVal);
           }
         }}
         on:mouseup={() => {
@@ -80,62 +78,16 @@
         }}
       />
       {#if key === target}
-        <g
-          transform={`translate(${xScale(key)},${
-            innerHeight - yScale(allocations[key]) - 20
-          })`}
-        >
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          {#if allocations[key] > 0}
-            <g
-              transform={`translate(${xScale.bandwidth() * 0})`}
-              class="cursor-pointer"
-              on:click={() => {
-                setAllocationValue(key, 0);
-                // allocations[key] = 0;
-              }}
-            >
-              <text
-                alignment-baseline="central"
-                text-anchor="start"
-                font-size="10"
-              >
-                Clear
-              </text>
-            </g>
-          {/if}
-          {#if doubleChecking && minimums[key]}
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <g
-              transform={`translate(${xScale.bandwidth() * 0.5}, 10)`}
-              class="cursor-pointer"
-              font-size="10"
-              on:click={() => {
-                setAllocationValue(key, minimums[key]);
-              }}
-            >
-              <text alignment-baseline="central" text-anchor="middle">
-                Set to min
-              </text>
-            </g>
-          {/if}
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          {#if budgetRemaining > 0}
-            <g
-              transform={`translate(${xScale.bandwidth() * 1})`}
-              class="cursor-pointer"
-              font-size="10"
-              on:click={() => {
-                setAllocationValue(key, allocations[key] + budgetRemaining);
-                // allocations[key] += budgetRemaining;
-              }}
-            >
-              <text alignment-baseline="central" text-anchor="end">
-                Fill Up
-              </text>
-            </g>
-          {/if}
-        </g>
+        <ChartBar
+          {setAllocationValue}
+          {key}
+          {allocations}
+          {minimums}
+          {doubleChecking}
+          {budgetRemaining}
+          xPos={xScale(key)}
+          yPos={innerHeight - yScale(allocations[key])}
+        />
       {/if}
     {/each}
     {#if doubleChecking}
@@ -145,6 +97,15 @@
             transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(minimum)})`}
           >
+            {#if key === target}
+              <text
+                font-size={10}
+                y={-10}
+                stroke={minimum > allocations[key] ? "#b91c1c" : "#16a34a"}
+              >
+                Min: {yScaleFormatter(minimum)}
+              </text>
+            {/if}
             <line
               x1={0}
               x2={xScale.bandwidth()}
@@ -206,6 +167,33 @@
       {/each}
     </g>
   </g>
+  {#if !tutorialDismissed && doubleChecking}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+
+    <g transform={`translate(${width * 0.6}, ${height * 0.3})`}>
+      <rect
+        x="-5"
+        y="-15"
+        width="400"
+        height="50"
+        stroke="#dc2626"
+        stroke-width="2"
+        fill="#f87171"
+      />
+      <text>These bars show the minimum each project asked for</text>
+      <text y={20}>click anywhere to dismiss</text>
+      <rect
+        {height}
+        {width}
+        fill="red"
+        on:click={() => {
+          tutorialDismissed = true;
+        }}
+        opacity={0}
+        class="cursor-pointer"
+      />
+    </g>
+  {/if}
 </svg>
 {#if openTooltip}
   <div>

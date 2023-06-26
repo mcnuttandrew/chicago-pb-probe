@@ -51,12 +51,12 @@
         <h2 class="text-xl">2022 / 2023 cycle</h2>
       </div>
       <Route path="/" component={About} />
-      <Route path="/demographics" component={Demographics} />
-      <Route path="/feedback" component={Feedback} />
       <Route path="/sort" component={Sort} />
+      <Route path="/demographics" component={Demographics} />
       <Route path="/allocate" component={Allocate} />
       <Route path="/check-allocate" component={AllocateCheck} />
       <Route path="/submit" component={Submit} />
     </div>
+    <Route path="/feedback" component={Feedback} />
   </Router>
 </main>
