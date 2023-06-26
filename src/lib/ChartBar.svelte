@@ -27,9 +27,6 @@
       width: 45,
     },
   ].filter((x) => x.criterion());
-  //   `translate(${xScale(key)},${
-  //     innerHeight - yScale(allocations[key]) - 20 -
-  //   })`
 </script>
 
 <g transform={`translate(${xPos},${yPos - menuItems.length * 30})`}>
@@ -55,70 +52,4 @@
       <text font-size="10">{menuItem.name}</text>
     </g>
   {/each}
-  <!-- {#if allocations[key] > 0}
-    <g
-      transform={`translate(${xScale.bandwidth() * 0})`}
-      class="cursor-pointer"
-      on:click={() => {
-        setAllocationValue(key, 0);
-        // allocations[key] = 0;
-      }}
-    >
-      <rect
-        x={-7}
-        y={-7.5}
-        width={40}
-        height={16}
-        fill="white"
-        rx={5}
-        stroke="black"
-      />
-      <text alignment-baseline="central" text-anchor="start" font-size="10">
-        Clear
-      </text>
-    </g>
-  {/if}
-  {#if doubleChecking && minimums[key]}
-    <g
-      transform={`translate(${xScale.bandwidth() * 0.5}, 10)`}
-      class="cursor-pointer"
-      font-size="10"
-      on:click={() => {
-        setAllocationValue(key, minimums[key]);
-      }}
-    >
-      <rect
-        x={0}
-        y={-7.5}
-        width={50}
-        height={16}
-        fill="white"
-        rx={5}
-        stroke="black"
-      />
-      <text alignment-baseline="central" text-anchor="middle">Set to min</text>
-    </g>
-  {/if} 
-  {#if budgetRemaining > 0}
-    <g
-      transform={`translate(${xScale.bandwidth() * 1})`}
-      class="cursor-pointer"
-      font-size="10"
-      on:click={() => {
-        setAllocationValue(key, allocations[key] + budgetRemaining);
-        // allocations[key] += budgetRemaining;
-      }}
-    >
-      <rect
-        x={-37}
-        y={-7.5}
-        width={40}
-        height={16}
-        fill="white"
-        rx={5}
-        stroke="black"
-      />
-      <text alignment-baseline="central" text-anchor="end">Fill Up</text>
-    </g>
-  {/if} -->
 </g>
