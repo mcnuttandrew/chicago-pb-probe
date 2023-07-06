@@ -17,15 +17,30 @@ export const explanations = {
     "Install curb cuts and crosswalk at 7557 N. Paulina to allow people with strollers or mobility impairments to access the north end of the train station.",
 };
 
+// at the lower end there a few low cost projects that are atypical
+// low cost projects listed below in comments
 export const minimums = {
-  "Street Resurfacing": 0,
-  "Bike Lanes": 240000,
-  "School Improvements": 245000,
-  "Picnic Tables": 40000,
-  "Street Lights": 0,
-  "Food Pantry": 0,
-  "Street Murals": 0,
-  "Curb Cuts": 0,
+  "Street Resurfacing": 34666,
+  "Bike Lanes": 10000,
+  "School Improvements": 50000, // 2500, 5000, 17000, 37000
+  "Picnic Tables": 12500,
+  "Street Lights": 55000, // 11200
+  "Food Pantry": 2500, // only one instance
+  "Street Murals": 32500, // 6000, 12000, 12000, 19200, 20000
+  "Curb Cuts": 20000,
+};
+
+// at the upper end there are long tails of high cost projects above the typical range
+// high cost projects listed below in comments
+export const maximums = {
+  "Street Resurfacing": 93500, // 250000, 480000, 500000, 510000, 600000, 600000, 650000
+  "Bike Lanes": 75000, // 125000
+  "School Improvements": 500000,
+  "Picnic Tables": 45000,
+  "Street Lights": 130000, // 234600, 390000, 454000
+  "Food Pantry": 2500, // only one instance
+  "Street Murals": 190000,
+  "Curb Cuts": 40000,
 };
 
 export const buttonStyle =
