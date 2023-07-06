@@ -22,7 +22,7 @@ export const explanations = {
 export const minimums = {
   "Street Resurfacing": 34666,
   "Bike Lanes": 10000,
-  "School Improvements": 50000, // 2500, 5000, 17000, 37000
+  "School Improvements": 50000, //  2500, 5000, 17000, 37000
   "Picnic Tables": 12500,
   "Street Lights": 55000, // 11200
   "Food Pantry": 2500, // only one instance
