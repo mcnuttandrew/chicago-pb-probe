@@ -20,7 +20,7 @@
   <div class="my-8 flex flex-col items-center w-full">
     <h1 class="text-2xl">
       Let's add a little bit of context and see how much each of these projects
-      asked for!lineYou are free to change your allocations if you wish.
+      asked for! You are free to change your allocations if you wish.
     </h1>
     <h3 class="italic">
       The lines indicate the minimum each project asked for. If there isn't a

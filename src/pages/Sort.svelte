@@ -14,7 +14,9 @@
     {#if !showNext}
       <h1>
         Order the projects my your preference for them. Click a project to add
-        it to your order. You'll need to sort all of them to move on.
+        it to your order. <b>
+          <i>You'll need to sort all of them to move on.</i>
+        </b>
       </h1>
     {/if}
     <div class="flex flex-wrap justify-between">
@@ -41,7 +43,7 @@
         {#if hoveredItem}
           {explanations[hoveredItem]}
         {:else}
-          Hover over an a card to see an explanation for it
+          Hover over a card to see an explanation for it
         {/if}
       </div>
     {/if}

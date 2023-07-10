@@ -1,7 +1,7 @@
 <script lang="ts">
   import { scaleBand, scaleLinear } from "d3-scale";
   import { format } from "d3-format";
-  import { minimums, explanations } from "./constants";
+  import { minimums, explanations, maximums } from "./constants";
   import ChartBar from "./ChartBar.svelte";
 
   export let sortOrder: string[];
@@ -85,6 +85,7 @@
           {minimums}
           {doubleChecking}
           {budgetRemaining}
+          minYPos={innerHeight - yScale(minimums[key])}
           xPos={xScale(key)}
           yPos={innerHeight - yScale(allocations[key])}
         />
@@ -169,8 +170,15 @@
   </g>
   {#if !tutorialDismissed && doubleChecking}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-
-    <g transform={`translate(${width * 0.6}, ${height * 0.3})`}>
+    <rect
+      x="0"
+      y={margin.top - 5}
+      height={innerHeight + margin.bottom}
+      {width}
+      fill="black"
+      opacity={0.3}
+    />
+    <g transform={`translate(${width * 0.3}, ${height * 0.5})`}>
       <rect
         x="-5"
         y="-15"
@@ -179,9 +187,15 @@
         stroke="#dc2626"
         stroke-width="2"
         fill="#f87171"
+        rx={2}
+        ry={2}
       />
-      <text>These bars show the minimum each project asked for</text>
-      <text y={20}>click anywhere to dismiss</text>
+      <text class="pointer-events-none">
+        These bars show the min and max each project asked
+      </text>
+      <text class="pointer-events-none" y={20}>
+        for. Click anywhere to dismiss
+      </text>
       <rect
         {height}
         {width}

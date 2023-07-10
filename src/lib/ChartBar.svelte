@@ -3,10 +3,13 @@
   export let key: string;
   export let allocations: Record<string, number>;
   export let minimums: Record<string, number>;
+  export let minYPos: number;
   export let doubleChecking: boolean;
   export let budgetRemaining: number;
   export let xPos: number;
   export let yPos: number;
+
+  $: newYPos = minimums[key] >= allocations[key] ? minYPos - 30 : yPos;
   $: menuItems = [
     {
       name: "Clear",
@@ -29,7 +32,7 @@
   ].filter((x) => x.criterion());
 </script>
 
-<g transform={`translate(${xPos},${yPos - menuItems.length * 30})`}>
+<g transform={`translate(${xPos},${newYPos - menuItems.length * 30})`}>
   {#if menuItems.length}
     <text font-size={10} font-weight={"bold"}>Actions</text>
   {/if}
@@ -46,7 +49,7 @@
         width={menuItem.width}
         height={16}
         fill="white"
-        rx={5}
+        rx={2}
         stroke="black"
       />
       <text font-size="10">{menuItem.name}</text>
