@@ -1,7 +1,7 @@
 <script lang="ts">
   import { scaleBand, scaleLinear } from "d3-scale";
   import { format } from "d3-format";
-  import { minimums, explanations, maximums } from "./constants";
+  import { projects } from "./constants";
   import ChartBar from "./ChartBar.svelte";
 
   export let sortOrder: string[];
@@ -11,7 +11,7 @@
 
   const height = 600;
   const width = 800;
-  const margin = { left: 50, right: 50, top: 100, bottom: 50 };
+  const margin = { left: 50, right: 50, top: 100, bottom: 200 };
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
   const MILLION = 1000000;
@@ -77,45 +77,71 @@
           state = "reading";
         }}
       />
-      {#if key === target}
-        <ChartBar
-          {setAllocationValue}
-          {key}
-          {allocations}
-          {minimums}
-          {doubleChecking}
-          {budgetRemaining}
-          minYPos={innerHeight - yScale(minimums[key])}
-          xPos={xScale(key)}
-          yPos={innerHeight - yScale(allocations[key])}
-        />
-      {/if}
+      <ChartBar
+        {setAllocationValue}
+        {key}
+        {allocations}
+        {doubleChecking}
+        {budgetRemaining}
+        xPos={xScale(key)}
+        yPos={innerHeight + 45}
+      />
+      <!-- yPos={innerHeight - yScale(allocations[key])} -->
     {/each}
     {#if doubleChecking}
-      {#each Object.entries(minimums) as [key, minimum]}
-        {#if minimum > 0}
-          <g
+      {#each Object.entries(projects) as [key, { min, max }]}
+        <!-- min line -->
+        {#if min > 0}
+          <line
             transform={`translate(${xScale(key)},
-                ${innerHeight - yScale(minimum)})`}
-          >
-            {#if key === target}
-              <text
-                font-size={10}
-                y={-10}
-                stroke={minimum > allocations[key] ? "#b91c1c" : "#16a34a"}
-              >
-                Min: {yScaleFormatter(minimum)}
-              </text>
-            {/if}
-            <line
-              x1={0}
-              x2={xScale.bandwidth()}
-              y1={0}
-              y2={0}
-              stroke={minimum > allocations[key] ? "#b91c1c" : "#16a34a"}
-              stroke-width={5}
-            />
-          </g>
+                ${innerHeight - yScale(min)})`}
+            x1={0}
+            x2={xScale.bandwidth()}
+            y1={0}
+            y2={0}
+            stroke={min > allocations[key] ? "#b91c1c" : "#16a34a"}
+            stroke-width={5}
+          />
+        {/if}
+        <!-- max line -->
+        {#if max}
+          <line
+            transform={`translate(${xScale(key)},
+                ${innerHeight - yScale(max)})`}
+            x1={0}
+            x2={xScale.bandwidth()}
+            y1={0}
+            y2={0}
+            stroke={max <= allocations[key] ? "#16a34a" : "gold"}
+            stroke-width={5}
+          />
+        {/if}
+        {#if key === target}
+          <!-- texts -->
+          {#if max !== min}
+            <text
+              transform={`translate(${xScale(key)},
+                ${innerHeight - yScale(max)})`}
+              font-size={10}
+              y={-5}
+              x={xScale.bandwidth()}
+              text-anchor="end"
+              stroke={max <= allocations[key] ? "#16a34a" : "gold"}
+            >
+              Max: {yScaleFormatter(max)}
+            </text>
+          {/if}
+          {#if min > 0}
+            <text
+              transform={`translate(${xScale(key)},
+                ${innerHeight - yScale(min)})`}
+              font-size={10}
+              y={-5}
+              stroke={min > allocations[key] ? "#b91c1c" : "#16a34a"}
+            >
+              Min: {yScaleFormatter(min)}
+            </text>
+          {/if}
         {/if}
       {/each}
     {/if}
@@ -129,28 +155,23 @@
         y2={yScale.range().at(-1)}
       />
       {#each sortOrder as key}
-        <g transform={`translate(${xScale(key)}, ${yScale.range().at(-1)})`}>
-          <text
-            x={xScale.bandwidth() / 2}
-            y={20}
-            font-size="10"
-            text-anchor="middle"
-          >
-            {key}
-          </text>
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          <text
-            font-size="12"
-            class="cursor-pointer"
-            on:click={(e) => {
-              openTooltip = { key, x: e.pageX, y: e.pageY };
-            }}
-            x={xScale.bandwidth() / 2}
-            y={35}
-            text-anchor="middle"
-          >
-            ⓘ
-          </text>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <g
+          class="cursor-pointer"
+          on:click={(e) => {
+            openTooltip = { key, x: e.pageX, y: e.pageY };
+          }}
+          transform={`translate(${xScale(key)}, ${yScale.range().at(-1) - 20})`}
+        >
+          <g transform={`translate(20, ${xScale.bandwidth() / 2})`}>
+            {#each key.split(" ") as word, idx}
+              <text y={idx * 10} font-size="10" text-anchor="start">
+                {word}
+              </text>
+            {/each}
+          </g>
+
+          <text font-size="12" x={10} y={45} text-anchor="middle">ⓘ</text>
         </g>
       {/each}
       <!-- y axis -->
@@ -196,6 +217,7 @@
       <text class="pointer-events-none" y={20}>
         for. Click anywhere to dismiss
       </text>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <rect
         {height}
         {width}
@@ -222,7 +244,7 @@
       class="absolute bg-gray-100 border-2 rounded shadow-lg p-2 max-w-md"
       style={`left: ${openTooltip.x}px; top: ${openTooltip.y}px`}
     >
-      {explanations[openTooltip.key]}
+      {projects[openTooltip.key].description}
     </div>
   </div>
 {/if}

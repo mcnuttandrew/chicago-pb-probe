@@ -2,7 +2,7 @@
   import { Link } from "svelte-routing";
   import { onMount } from "svelte";
 
-  import { explanations, buttonStyle, minimums } from "../lib/constants";
+  import { projects, buttonStyle } from "../lib/constants";
   import Chart from "../lib/Chart.svelte";
   import { format } from "d3-format";
   import ElicitHeader from "../lib/ElicitHeader.svelte";
@@ -14,8 +14,8 @@
   onMount(() => {
     setTimeout(() => {
       let localSort = sortOrder;
-      if (localSort.length !== Object.keys(explanations).length) {
-        localSort = Object.keys(explanations);
+      if (localSort.length !== Object.keys(projects).length) {
+        localSort = Object.keys(projects);
         store.setSort(localSort);
       }
       if (!localSort.every((key) => Number.isFinite(allocations[key]))) {
