@@ -104,7 +104,7 @@
           />
         {/if}
         <!-- max line -->
-        {#if max}
+        <!-- {#if max}
           <line
             transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -115,10 +115,10 @@
             stroke={max <= allocations[key] ? "#16a34a" : "gold"}
             stroke-width={5}
           />
-        {/if}
+        {/if} -->
         {#if key === target}
           <!-- texts -->
-          {#if max !== min}
+          <!-- {#if max !== min}
             <text
               transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -130,7 +130,7 @@
             >
               Max: {yScaleFormatter(max)}
             </text>
-          {/if}
+          {/if} -->
           {#if min > 0}
             <text
               transform={`translate(${xScale(key)},
@@ -203,8 +203,8 @@
       <rect
         x="-5"
         y="-15"
-        width="400"
-        height="50"
+        width="360"
+        height="45"
         stroke="#dc2626"
         stroke-width="2"
         fill="#f87171"
@@ -212,10 +212,10 @@
         ry={2}
       />
       <text class="pointer-events-none">
-        These bars show the min and max each project asked
+        These bars show the min each project asked for
       </text>
-      <text class="pointer-events-none" y={20}>
-        for. Click anywhere to dismiss
+      <text x={175} text-anchor="middle" class="pointer-events-none" y={20}>
+        Click anywhere to dismiss
       </text>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <rect

@@ -21,12 +21,12 @@
       criterion: () => doubleChecking && projects[key].min,
       width: 60,
     },
-    {
-      name: "Set to max",
-      action: () => setAllocationValue(key, projects[key].max),
-      criterion: () => doubleChecking && projects[key].max,
-      width: 60,
-    },
+    // {
+    //   name: "Set to max",
+    //   action: () => setAllocationValue(key, projects[key].max),
+    //   criterion: () => doubleChecking && projects[key].max,
+    //   width: 60,
+    // },
     {
       name: "Fill Up",
       action: () => setAllocationValue(key, allocations[key] + budgetRemaining),
