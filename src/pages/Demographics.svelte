@@ -21,7 +21,7 @@
     {
       question: "How would you identify your race or ethnicity?",
       options: [
-        "American Indian/ Alaskan Native",
+        // "American Indian/ Alaskan Native",
         "Asian",
         "Black or African American",
         "Hispanic or Latino/a",
