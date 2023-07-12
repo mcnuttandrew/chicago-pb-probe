@@ -9,6 +9,8 @@
   export let doubleChecking: boolean;
   export let setAllocationValue: (key: string, val: number) => void;
 
+  const SHOW_MAX_LINES = false;
+
   const height = 600;
   const width = 800;
   const margin = { left: 50, right: 50, top: 100, bottom: 200 };
@@ -86,7 +88,6 @@
         xPos={xScale(key)}
         yPos={innerHeight + 45}
       />
-      <!-- yPos={innerHeight - yScale(allocations[key])} -->
     {/each}
     {#if doubleChecking}
       {#each Object.entries(projects) as [key, { min, max }]}
@@ -104,7 +105,7 @@
           />
         {/if}
         <!-- max line -->
-        <!-- {#if max}
+        {#if SHOW_MAX_LINES && max}
           <line
             transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -115,10 +116,10 @@
             stroke={max <= allocations[key] ? "#16a34a" : "gold"}
             stroke-width={5}
           />
-        {/if} -->
+        {/if}
         {#if key === target}
           <!-- texts -->
-          <!-- {#if max !== min}
+          {#if SHOW_MAX_LINES && max !== min}
             <text
               transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -130,7 +131,7 @@
             >
               Max: {yScaleFormatter(max)}
             </text>
-          {/if} -->
+          {/if}
           {#if min > 0}
             <text
               transform={`translate(${xScale(key)},
