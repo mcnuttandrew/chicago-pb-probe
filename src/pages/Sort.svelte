@@ -1,10 +1,10 @@
 <script lang="ts">
   import ElicitHeader from "../lib/ElicitHeader.svelte";
-  import { explanations, buttonStyle } from "../lib/constants";
+  import { projects, buttonStyle } from "../lib/constants";
   import SortableList from "svelte-sortable-list";
   import { store } from "../lib/store";
   $: sortOrder = $store.sortOrder;
-  $: showNext = sortOrder.length === Object.keys(explanations).length;
+  $: showNext = sortOrder.length === Object.keys(projects).length;
   let hoveredItem: false | string = false;
 </script>
 
@@ -14,11 +14,13 @@
     {#if !showNext}
       <h1>
         Order the projects my your preference for them. Click a project to add
-        it to your order. You'll need to sort all of them to move on.
+        it to your order. <b>
+          <i>You'll need to sort all of them to move on.</i>
+        </b>
       </h1>
     {/if}
     <div class="flex flex-wrap justify-between">
-      {#each Object.keys(explanations).filter((x) => !sortOrder.find((y) => x === y)) as item}
+      {#each Object.keys(projects).filter((x) => !sortOrder.find((y) => x === y)) as item}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
           class="h-32 w-32 border-2 border-black rounded text-center flex items-center justify-center cursor-pointer bg-violet-200 my-2"
@@ -39,9 +41,9 @@
     {#if !showNext}
       <div class="italic h-20">
         {#if hoveredItem}
-          {explanations[hoveredItem]}
+          {projects[hoveredItem].description}
         {:else}
-          Hover over an a card to see an explanation for it
+          Hover over a card to see an explanation for it
         {/if}
       </div>
     {/if}
@@ -64,7 +66,7 @@
           {/if}{#if item.id === sortOrder.length - 1}Least Important:
           {/if}{item.name}
         </span>
-        <span class="text-sm">{explanations[item.name]}</span>
+        <span class="text-sm">{projects[item.name].description}</span>
       </div>
     </SortableList>
   </div>
