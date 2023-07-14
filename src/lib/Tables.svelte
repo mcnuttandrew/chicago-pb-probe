@@ -20,14 +20,16 @@
     educ: "What is your highest level of education?",
   };
   $: yourDemoValue = demos[demoToCat[demographicSelected]];
-  const getDomain = (x: number[]) => [Math.min(...x), Math.max(...x)];
+  const getDomain = (x: number[]) => [0, Math.max(...x)];
 
   $: scales = Object.fromEntries(
     Object.entries(tableData || {}).map(
       ([name, data]: [string, Record<string, number>[]]) => {
         const buildDomain = (str: string) =>
-          [redSelect, blueSelect].flatMap((x) =>
-            data.map((el) => el[`Ward ${x} ${str}`])
+          data.flatMap((row) =>
+            Object.entries(row)
+              .filter(([key]) => key.endsWith(str))
+              .map(([key, value]) => value)
           );
 
         //   use a clipped range to make sure the text stays legible
@@ -44,18 +46,21 @@
     )
   );
 
+  const numFormat = format(",.6");
+  const percentFormat = (x) => `${x}%`;
+  const countFormat = (x) => numFormat(x);
   $: tableCols = [
-    { scale: "popScale", key: `Ward ${redSelect} Pop`, format: (x) => x },
+    { scale: "popScale", key: `Ward ${redSelect} Pop`, format: countFormat },
     {
       scale: "partScale",
       key: `Ward ${redSelect} Part`,
-      format: (x) => `${x}%`,
+      format: percentFormat,
     },
-    { scale: "popScale", key: `Ward ${blueSelect} Pop`, format: (x) => x },
+    { scale: "popScale", key: `Ward ${blueSelect} Pop`, format: countFormat },
     {
       scale: "partScale",
       key: `Ward ${blueSelect} Part`,
-      format: (x) => `${x}%`,
+      format: percentFormat,
     },
   ];
 </script>

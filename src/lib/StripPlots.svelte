@@ -34,9 +34,8 @@
   const yScaleFormatter = format("~s");
   const MILLION = 1000000;
 
-  $: xDomain = Array.from(new Set(data.map((x) => x.item))) as string[];
-  $: yVals = data.map((x) => Number(x.allocation));
-  $: yDomain = [Math.min(...yVals), Math.max(...yVals)];
+  $: xDomain = Array.from(new Set(data.map((x) => x.item))).sort() as string[];
+  $: yDomain = [0, Math.max(...data.map((x) => Number(x.allocation)))];
   $: xScale = scaleBand().domain(xDomain).range([0, innerWidth]);
   $: yScale = scaleLinear().domain(yDomain).range([0, innerHeight]);
 </script>

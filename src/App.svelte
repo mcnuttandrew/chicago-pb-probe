@@ -23,17 +23,9 @@
     <nav
       class="w-full bg-black text-white flex flex-row justify-between px-2 py-1"
     >
-      <!-- <div>
-        <Link to="/">About</Link>
-        <Link to="/sort">Sort</Link>
-        <Link to="/allocate">Allocate</Link>
-        <Link to="/check-allocate">AllocateCheck</Link>
-        <Link to="/demographics">Demographics</Link>
-        <Link to="/submit">Submit</Link>
-        <Link to="/feedback">Feedback</Link>
-      </div> -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div
+        class="text-black"
         on:click={() => {
           localStorage.removeItem("ue-pb");
           setTimeout(() => {

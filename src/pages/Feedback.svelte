@@ -33,7 +33,7 @@
   let blueSelect = "49";
   let redSelect = "29";
 
-  let mode: "demographics" | "strip" = "strip";
+  let mode: "demographics" | "strip" = "demographics";
 
   let lastWasRed = false;
   const allowedWards = new Set(wards);
