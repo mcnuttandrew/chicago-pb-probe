@@ -8,7 +8,6 @@ export function errorResponse(callback, err) {
     body: JSON.stringify({ error: err }),
   });
 }
-
 const DB_URL = process.env.DB_URL || "mongodb://localhost:27017";
 const DB_NAME = "ue-pb";
 
@@ -20,7 +19,6 @@ export const handler = (event, context, callback) => {
     errorResponse(callback, "Bad submit");
     return;
   }
-  console.log(`${DB_URL}/${DB_NAME}`);
   MongoClient.connect(`${DB_URL}/${DB_NAME}`)
     .then((connection) => {
       const db = connection.db(DB_NAME);
