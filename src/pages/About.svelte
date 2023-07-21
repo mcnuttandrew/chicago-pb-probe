@@ -1,6 +1,9 @@
 <script lang="ts">
   import { Link } from "svelte-routing";
   import { buttonStyle } from "../lib/constants";
+  import { store } from "../lib/store";
+
+  let userId = "your Id";
 </script>
 
 <div>
@@ -25,6 +28,17 @@
     implemented for any reason, Alderman Villegas will use the allocated money
     to fund the next runner-up project that falls within the project.
   </p>
+
+  <h3 class="text-lg text-blue-400">Please input your User Id</h3>
+
+  <p class="italic">This will be provided by the interviewer.</p>
+
+  <input bind:value={userId} style="padding: initial; border: 2px solid gray; border-radius: 4px;" size="10"/>
+  <button
+    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" 
+    on:click={() => store.setUserId(userId)}>
+    Confirm
+  </button>
 
   <div class="w-full flex items-center justify-center">
     <Link to="/sort">
