@@ -13,11 +13,12 @@
   <div class="my-8">
     {#if !showNext}
       <h1>
-        Order the projects my your preference for them. Click a project to add
-        it to your order. <b>
+        Order the following projects by your preference for them. 
+        <b>
           <i>You'll need to sort all of them to move on.</i>
         </b>
       </h1>
+      <div class="italic h-20">Click each project below to add it to your order.</div>
     {/if}
     <div class="flex flex-wrap justify-between">
       {#each Object.keys(projects).filter((x) => !sortOrder.find((y) => x === y)) as item}
@@ -74,5 +75,5 @@
 
 {#if showNext}
   <!-- hard linked (rather than using soft Links bc of animation sync bugs that cause faulty renders) -->
-  <a href="/allocate" class={buttonStyle}>Im happy with this sort order</a>
+  <a href="/allocate" class={buttonStyle}>I'm happy with this sort order</a>
 {/if}

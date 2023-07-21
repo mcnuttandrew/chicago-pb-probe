@@ -40,7 +40,7 @@
   <ElicitHeader />
   <div class="my-8 flex flex-col items-center w-full">
     <h1 class="text-2xl">
-      Now let's allocate funds. Draw bars to distribute money among these
+      Now let's allocate funds! Draw bars to distribute money among these
       projects.
     </h1>
 
@@ -70,7 +70,7 @@
         to="/check-allocate"
         on:click={() => store.setPostAllocation(allocations)}
       >
-        I'm happy with this allocation amount
+        I'm happy with my allocation amounts
       </Link>
     {/if}
   </div>
