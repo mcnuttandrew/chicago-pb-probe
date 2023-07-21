@@ -53,20 +53,13 @@
 
 <div class="px-8">
   <!-- <p>Voting has concluded for the 2022/2023 Participatory Budgeting cycle.</p> -->
-  <p>
-    Thank you for participating! You can explore some of the context of these
-    values below
+  <h3 class="text-lg text-blue-400">Thank you for participating!</h3>
+  <p class="italic">
+    This page provides information for you to explore about who has voted so far in each ward.
+    You can also see people's preferred allocations in participating wards.
   </p>
 
-  <p>
-    Explore the projects that received the most votes and the allocations
-    proposed by the residents.
-  </p>
-
-  <p>
-    Here you can compare participation across Wards, relative to each Ward's
-    demographics for the 2022/2023 Participatory Budgeting.
-  </p>
+  <p>Click the buttons below to start exploring!</p>
 </div>
 
 <div class="flex items-center justify-between px-8 mt-8 w-full max-w-4xl">
@@ -91,7 +84,7 @@
         class:bg-black={mode === "strip"}
         class:text-white={mode === "strip"}
       >
-        Responses
+        Allocations
       </button>
     </div>
   </div>
@@ -119,6 +112,12 @@
 </div>
 
 {#if mode === "demographics"}
+  <div class="px-8" style="padding: 20px 0px;">
+    <p>
+      Here you can compare participation across Wards, relative to each Ward's overall
+      demographics during the 2022/2023 Participatory Budgeting cycle.
+    </p>
+  </div>
   <div
     class="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start h-full w-full max-w-4xl"
   >
@@ -134,6 +133,12 @@
   </div>
 {/if}
 {#if mode === "strip"}
+<div class="px-8" style="padding: 20px 0px;">
+  <p>
+    Here you can explore the kinds of projects that received the most votes in each ward and the allocations
+    proposed by residents.
+  </p>
+</div>
   <div
     class="flex flex-col items-center md:flex-row md:justify-between lg:items-start h-full w-full max-w-4xl"
   >

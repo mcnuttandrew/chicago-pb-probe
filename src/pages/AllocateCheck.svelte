@@ -19,12 +19,12 @@
   <ElicitHeader />
   <div class="my-8 flex flex-col items-center w-full">
     <h1 class="text-2xl">
-      Let's add a little bit of context and see how much each of these projects
-      asked for! You are free to change your allocations if you wish.
+      Let's see how much money each of these projects asked for! 
+      You are free to change your allocations if you wish.
     </h1>
     <h3 class="italic">
-      The lines indicate the minimum each project asked for. If there isn't a
-      line then there is not minimum for that project.
+      The horzontal lines indicate the estimated cost of each project. 
+      <!-- If there isn't a line, then there is not minimum for that project. -->
     </h3>
 
     <div class="flex flex-col w-full items-center">
@@ -46,7 +46,7 @@
     />
     {#if budgetRemaining === 0}
       <Link to="/demographics" class={buttonStyle}>
-        I'm now actually happy with my allocations
+        I'm happy with my allocations
       </Link>
     {/if}
   </div>
