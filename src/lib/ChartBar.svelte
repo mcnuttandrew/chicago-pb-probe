@@ -16,11 +16,17 @@
       width: 35,
     },
     {
-      name: "Set to min",
-      action: () => setAllocationValue(key, projects[key].min),
-      criterion: () => doubleChecking && projects[key].min,
+      name: "Set to cost",
+      action: () => setAllocationValue(key, projects[key].est),
+      criterion: () => doubleChecking && projects[key].est,
       width: 60,
     },
+    // {
+    //   name: "Set to min",
+    //   action: () => setAllocationValue(key, projects[key].min),
+    //   criterion: () => doubleChecking && projects[key].min,
+    //   width: 60,
+    // },
     // {
     //   name: "Set to max",
     //   action: () => setAllocationValue(key, projects[key].max),

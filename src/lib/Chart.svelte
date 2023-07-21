@@ -90,9 +90,22 @@
       />
     {/each}
     {#if doubleChecking}
-      {#each Object.entries(projects) as [key, { min, max }]}
+      {#each Object.entries(projects) as [key, { min, max, est }]}
+        <!-- est line -->
+        {#if est > 0}
+          <line
+            transform={`translate(${xScale(key)},
+                ${innerHeight - yScale(est)})`}
+            x1={0}
+            x2={xScale.bandwidth()}
+            y1={0}
+            y2={0}
+            stroke={est > allocations[key] ? "#b91c1c" : "#16a34a"}
+            stroke-width={5}
+          />
+        {/if}
         <!-- min line -->
-        {#if min > 0}
+        <!-- {#if min > 0}
           <line
             transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(min)})`}
@@ -103,9 +116,9 @@
             stroke={min > allocations[key] ? "#b91c1c" : "#16a34a"}
             stroke-width={5}
           />
-        {/if}
+        {/if} -->
         <!-- max line -->
-        {#if SHOW_MAX_LINES && max}
+        <!-- {#if SHOW_MAX_LINES && max}
           <line
             transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -116,10 +129,21 @@
             stroke={max <= allocations[key] ? "#16a34a" : "gold"}
             stroke-width={5}
           />
-        {/if}
+        {/if} -->
         {#if key === target}
           <!-- texts -->
-          {#if SHOW_MAX_LINES && max !== min}
+          {#if est > 0}
+            <text
+              transform={`translate(${xScale(key)},
+                ${innerHeight - yScale(est)})`}
+              font-size={10}
+              y={-5}
+              stroke={est > allocations[key] ? "#b91c1c" : "#16a34a"}
+            >
+              Cost: {yScaleFormatter(est)}
+            </text>
+          {/if}
+          <!-- {#if SHOW_MAX_LINES && max !== min}
             <text
               transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(max)})`}
@@ -131,8 +155,8 @@
             >
               Max: {yScaleFormatter(max)}
             </text>
-          {/if}
-          {#if min > 0}
+          {/if} -->
+          <!-- {#if min > 0}
             <text
               transform={`translate(${xScale(key)},
                 ${innerHeight - yScale(min)})`}
@@ -142,7 +166,7 @@
             >
               Min: {yScaleFormatter(min)}
             </text>
-          {/if}
+          {/if} -->
         {/if}
       {/each}
     {/if}
