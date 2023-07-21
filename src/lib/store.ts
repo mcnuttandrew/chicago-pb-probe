@@ -38,6 +38,7 @@ function createStore() {
 
   return {
     subscribe,
+    setUserId: simpleSet("userId"),
     setSort: simpleSet("sortOrder"),
     setAllocation: simpleSet("allocations"),
     setPostAllocation: simpleSet("postCheckAllocations"),
