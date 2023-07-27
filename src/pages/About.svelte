@@ -4,6 +4,7 @@
   import { store } from "../lib/store";
 
   let userId = "your Id";
+  let submitId = false;
 </script>
 
 <div>
@@ -48,9 +49,15 @@
   <input bind:value={userId} style="padding: initial; border: 2px solid gray; border-radius: 4px;" size="10"/>
   <button
     class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" 
-    on:click={() => store.setUserId(userId)}>
+    on:click={() => {
+      store.setUserId(userId);
+      submitId = true;
+    }}>
     Confirm
   </button>
+  {#if submitId}
+    <p>Thanks! We've logged your User Id as <b style="color:maroon">{userId}</b>.</p>
+  {/if}
 
   <div class="w-full flex items-center justify-center">
     <Link to="/sort">
