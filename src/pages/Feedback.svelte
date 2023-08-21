@@ -53,7 +53,7 @@
 
 <div class="px-8">
   <!-- <p>Voting has concluded for the 2022/2023 Participatory Budgeting cycle.</p> -->
-  <h3 class="text-lg text-red-400">Thank you for participating!</h3>
+  <h3 class="text-lg text-sky-400">Thank you for participating!</h3>
   <p class="italic">
     This page provides information for you to explore about who has voted so far in each ward.
     You can also see people's preferred allocations in participating wards.
