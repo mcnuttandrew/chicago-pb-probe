@@ -40,8 +40,8 @@
   <ElicitHeader />
   <div class="my-8 flex flex-col items-center w-full">
     <h1 class="text-2xl">
-      Now let's allocate funds! Draw bars to distribute money among these
-      projects.
+      Now let's allocate funds! Drag the bars below to sketch how you would 
+      distribute money among these projects.
     </h1>
 
     <div class="flex flex-col w-full items-center">

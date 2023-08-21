@@ -17,7 +17,7 @@
     },
     {
       name: "Set to cost",
-      action: () => setAllocationValue(key, projects[key].est),
+      action: () => setAllocationValue(key, projects[key].est), // assumes projects have integer cost; otherwise, need to round here
       criterion: () => doubleChecking && projects[key].est,
       width: 60,
     },
@@ -35,7 +35,7 @@
     // },
     {
       name: "Fill Up",
-      action: () => setAllocationValue(key, allocations[key] + budgetRemaining),
+      action: () => setAllocationValue(key, allocations[key] + budgetRemaining), // assumes all integer valued allocations to avoid rounding errors
       criterion: () => budgetRemaining > 0,
       width: 40,
     },
