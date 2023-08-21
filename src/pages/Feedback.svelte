@@ -95,6 +95,7 @@
         bind:value={redSelect}
         class="border-2 border-black py-2 px-1 rounded mr-2"
       >
+        <option value={null}>(no selection)</option>
         {#each wards as ward}
           <option value={ward}>Ward {ward}</option>
         {/each}
@@ -103,6 +104,7 @@
         bind:value={blueSelect}
         class="border-2 border-black py-2 px-1 rounded mr-2"
       >
+        <option value={null}>(no selection)</option>
         {#each wards as ward}
           <option value={ward}>Ward {ward}</option>
         {/each}
@@ -122,7 +124,7 @@
     class="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start h-full w-full max-w-4xl"
   >
     <Map
-      height={600}
+      height={500}
       width={400}
       {features}
       {redSelect}
@@ -143,24 +145,32 @@
     class="flex flex-col items-center md:flex-row md:justify-between lg:items-start h-full w-full max-w-4xl"
   >
     <Map
-      height={600}
+      height={500}
       width={400}
       {features}
       {redSelect}
       {blueSelect}
       {selectWard}
     />
-    <div class="flex flex-col">
-      <StripPlot
-        color="#7e62c4"
-        ward={redSelect}
-        inputData={stripData.filter((x) => x.ward === redSelect)}
-      />
-      <StripPlot
-        ward={blueSelect}
-        inputData={stripData.filter((x) => x.ward === blueSelect)}
-        color={"#ed963c"}
-      />
+    <div class="flex flex-row">
+      {#if redSelect}
+        <div class="flex-col">
+          <StripPlot
+            color="#7e62c4"
+            ward={redSelect}
+            inputData={stripData.filter((x) => x.ward === redSelect)}
+          />
+        </div>
+      {/if}
+      {#if blueSelect}
+        <div class="flex-col">
+          <StripPlot
+            ward={blueSelect}
+            inputData={stripData.filter((x) => x.ward === blueSelect)}
+            color={"#ed963c"}
+          />
+        </div>
+      {/if}
     </div>
   </div>
 {/if}

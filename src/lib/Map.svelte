@@ -8,7 +8,7 @@
   export let selectWard: (ward: string) => void;
   let projection = geoMercator()
     .center([-87.723177, 41.778832])
-    .translate([width / 2, height * 0.7])
+    .translate([width / 2, height * 0.6])
     .scale(50000);
   let path = geoPath().projection(projection);
   let hovered: false | string = false;
@@ -24,7 +24,7 @@
       return "#ed963c";
     }
     if (allowedWard.has(ward)) {
-      return "cadetblue";
+      return "gray";
     }
     return "white";
   };
