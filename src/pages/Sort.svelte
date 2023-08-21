@@ -44,14 +44,15 @@
         {#if hoveredItem}
           {projects[hoveredItem].description}
         {:else}
-          Hover over a card to see an explanation for it
+          Hover over a card to see an explanation for it.
         {/if}
       </div>
     {/if}
   </div>
   <div class="my-8">
     {#if sortOrder.length}
-      <h1>Click and drag a project to reorder its importance</h1>
+      <h1>Click and drag a project to reorder its importance.</h1>
+      <b>Most Important</b>
     {/if}
     <SortableList
       list={sortOrder.map((name, id) => ({ name, id }))}
@@ -63,13 +64,20 @@
         class="border-2 border-gray-500 px-3 rounded flex flex-col cursor-pointer"
       >
         <span class="bolder italic">
-          {#if item.id === 0}Most Important:
-          {/if}{#if item.id === sortOrder.length - 1}Least Important:
-          {/if}{item.name}
+          <!-- {#if item.id === 0}
+            Most Important:
+          {/if}
+          {#if item.id === sortOrder.length - 1}
+            Least Important:
+          {/if} -->
+          {item.id + 1}. {item.name}
         </span>
         <span class="text-sm">{projects[item.name].description}</span>
       </div>
     </SortableList>
+    {#if sortOrder.length}
+      <b>Least Important</b>
+    {/if}
   </div>
 </div>
 

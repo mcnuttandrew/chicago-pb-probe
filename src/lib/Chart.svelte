@@ -61,22 +61,30 @@
         fill-opacity={0}
         {height}
         width={xScale.bandwidth()}
+        id={"dragbox-" + key}
         on:mouseenter={() => {
           target = key;
+          if (state === "dragging") {
+            document.getElementById("dragbox-" + key).style.cursor = "grabbing";
+          } else {
+            document.getElementById("dragbox-" + key).style.cursor = "grab";
+          }
         }}
         on:mousedown={() => {
           state = "dragging";
+          document.getElementById("dragbox-" + key).style.cursor = "grabbing";
         }}
         on:mousemove={(e) => {
           if (state === "dragging") {
             // @ts-ignore
             const bbox = e.target.getBoundingClientRect();
             const yVal = e.y - bbox.y;
-            setAllocationValue(key, yScale.invert(innerHeight - yVal));
+            setAllocationValue(key, clamp(Math.round(yScale.invert(innerHeight - yVal)), 0, MILLION));
           }
         }}
         on:mouseup={() => {
           state = "reading";
+          document.getElementById("dragbox-" + key).style.cursor = "grab";
         }}
       />
       <ChartBar

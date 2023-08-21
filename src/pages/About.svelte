@@ -17,7 +17,7 @@
     should be allocated.
   </h3>
 
-  <h3 class="text-lg text-blue-400">What happens after I vote?</h3>
+  <h3 class="text-lg text-sky-400">What happens after I vote?</h3>
 
   <p class="my-2">
     The Ward Alderperson
@@ -42,13 +42,15 @@
     within the budget.
   </p>
 
-  <h3 class="text-lg text-blue-400">Before proceeding, please input your User Id for the study.</h3>
+  <h3 class="text-lg text-sky-400">Before proceeding, please input your User Id for the study.</h3>
 
   <p class="italic">This will be provided by the interviewer.</p>
 
   <input bind:value={userId} style="padding: initial; border: 2px solid gray; border-radius: 4px;" size="10"/>
+  <br>
   <button
-    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" 
+    class="bg-white hover:bg-gray-100 border-2 border-gray-700 rounded px-4 py-0.4" 
+    style="margin-top: 5px"
     on:click={() => {
       store.setUserId(userId);
       submitId = true;
@@ -56,7 +58,7 @@
     Confirm
   </button>
   {#if submitId}
-    <p>Thanks! We've logged your User Id as <b style="color:maroon">{userId}</b>.</p>
+    <p>Thanks! We've logged your User Id as <b style="color:blue">{userId}</b>.</p>
   {/if}
 
   <div class="w-full flex items-center justify-center">

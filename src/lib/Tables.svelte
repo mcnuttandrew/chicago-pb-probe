@@ -79,6 +79,7 @@
       <col />
       <colgroup span="2" />
       <colgroup span="2" />
+
       <tr>
         <th rowspan="2">{shortToLongName[demographicSelected]}</th>
         <th
@@ -87,7 +88,11 @@
           class="mx-4 border-2 border-white"
           style="background: #7e62c4"
         >
-          Ward {redSelect}
+          {#if redSelect}
+            Ward {redSelect}
+          {:else}
+            No Ward Selected
+          {/if}
         </th>
         <th
           colspan="2"
@@ -95,7 +100,11 @@
           class="mx-4 border-2 border-white"
           style="background: #ed963c"
         >
+        {#if blueSelect}
           Ward {blueSelect}
+        {:else}
+          No Ward Selected
+        {/if}
         </th>
       </tr>
       <tr>
@@ -109,7 +118,7 @@
           class:border-black={dataRow.category === yourDemoValue}
           class:border-2={dataRow.category === yourDemoValue}
         >
-          <th style="width: 211px" scope="row" class="font-normal">
+          <th style="text-wrap: nowrap;" scope="row" class="font-normal">
             {dataRow.category}
           </th>
           {#each tableCols as column}

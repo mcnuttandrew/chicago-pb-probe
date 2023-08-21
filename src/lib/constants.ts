@@ -76,4 +76,4 @@ export const projects: Record<
 };
 
 export const buttonStyle =
-  "border-blue-700 border-2 rounded bg-blue-200 px-8 py-4";
+  "border-sky-700 border-2 rounded bg-sky-200 px-8 py-4";

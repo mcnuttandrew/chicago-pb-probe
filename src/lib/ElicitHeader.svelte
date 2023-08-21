@@ -1,4 +1,4 @@
-<h3 class="text-blue-400 font-bold">
+<h3 class="text-sky-400 font-bold">
   How were the project proposals selected?
 </h3>
 <p class="my-2">
