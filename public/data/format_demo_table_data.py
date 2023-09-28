@@ -35,8 +35,8 @@ SORT_ORDERS = {
         "High school": 1,
         "Some college": 2,
         "Professional school": 3,
-        "Bachelor's": 4,
-        "Master's": 5,
+        "Bachelor": 4,
+        "Master": 5,
         "Doctorate": 6
     }
 }
@@ -89,6 +89,14 @@ def format_income(i):
         idx = label.index("-")
         return "$" + label[:idx + 1] + "$" + label[idx + 1:]
     
+def format_educ(e):
+    if (e == "master's"):
+        return "Master"
+    elif (e == "bachelor's"):
+        return "Bachelor"
+    else:
+        return e.capitalize()
+    
 # sort table entries by demographic categories
 def sort_by(table, demo):
     table[demo].sort(key=lambda x: SORT_ORDERS[demo][x["category"]])
@@ -127,7 +135,7 @@ sort_by(table_data, "income")
 # construct edu table
 edu_categories = edu_df["education"].unique()
 for e in edu_categories:
-    curr_obj = {"category": e.capitalize()}
+    curr_obj = {"category": format_educ(e)}
     curr_df = edu_df[edu_df["education"] == e]
     curr_df.apply(lambda row: append_entry(curr_obj, row["ward"], row["pop"], row["part"], "educ"), axis = 1)
     table_data["educ"].append(curr_obj)
