@@ -13,7 +13,7 @@
   const demographicsOptions = Object.keys(shortToLongName);
   let demographicSelected = demographicsOptions[0];
   
-  let mode: "count" | "percent" = "count";
+  let mode: "count" | "percent" = "percent";
 
   $: demos = $store.demographics;
   let demoToCat = {

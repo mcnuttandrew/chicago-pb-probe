@@ -14,9 +14,23 @@ pivot_and_uncount = function(df, var_name, val_name) {
     uncount(count)
 }
 
-sample_participants = function(long_df, prop) {
-  sample <- long_df %>%
-    sample_frac(prop) # some percent of ward participating
+sample_participants = function(long_df, groupby, prop_lb, prop_ub) {
+  group_levels = long_df[, groupby] %>%
+    sapply(unique)
+  
+  samples = list()
+  idx = 0
+  
+  for (g in group_levels) {
+    idx = idx + 1
+    prop = runif(1, min = prop_lb, max = prop_ub) # simulates different participation rates across groups
+    
+    samples[[idx]] = long_df %>%
+      filter(!!sym(groupby) == g) %>%
+      sample_frac(prop) # some percent of ward participating
+  }
+  
+  bind_rows(samples)
 }
 
 
@@ -25,19 +39,19 @@ edu_df <- read_csv("./source/educ.csv")
 
 # ward 29
 ward29_edu = pivot_and_uncount(edu_df, education, ward_29_educ)
-ward29_edu_sample = sample_participants(ward29_edu, 0.05)
+ward29_edu_sample = sample_participants(ward29_edu, "education", 0.01, 0.05)
 
 # ward 35
 ward35_edu = pivot_and_uncount(edu_df, education, ward_35_educ)
-ward35_edu_sample = sample_participants(ward35_edu, 0.06)
+ward35_edu_sample = sample_participants(ward35_edu, "education", 0.02, 0.06)
 
 # ward 36
 ward36_edu = pivot_and_uncount(edu_df, education, ward_36_educ)
-ward36_edu_sample = sample_participants(ward36_edu, 0.05)
+ward36_edu_sample = sample_participants(ward36_edu, "education", 0.01, 0.05)
 
 # ward 49
 ward49_edu = pivot_and_uncount(edu_df, education, ward_49_educ)
-ward49_edu_sample = sample_participants(ward49_edu, 0.07)
+ward49_edu_sample = sample_participants(ward49_edu, "education", 0.03, 0.07)
 
 # combine wards into one table
 educ_sample = rbind(ward29_edu_sample, ward35_edu_sample, ward36_edu_sample, ward49_edu_sample)
@@ -72,19 +86,19 @@ income_df <- read_csv("./source/income_cohort.csv")
 
 # ward 29
 ward29_income = pivot_and_uncount(income_df, income_cohort, ward_29_income)
-ward29_income_sample = sample_participants(ward29_income, 0.05)
+ward29_income_sample = sample_participants(ward29_income, "income_cohort", 0.01, 0.05)
 
 # ward 35
 ward35_income = pivot_and_uncount(income_df, income_cohort, ward_35_income)
-ward35_income_sample = sample_participants(ward35_income, 0.06)
+ward35_income_sample = sample_participants(ward35_income, "income_cohort", 0.02, 0.06)
 
 # ward 36
 ward36_income = pivot_and_uncount(income_df, income_cohort, ward_36_income)
-ward36_income_sample = sample_participants(ward36_income, 0.05)
+ward36_income_sample = sample_participants(ward36_income, "income_cohort", 0.01, 0.05)
 
 # ward 49
 ward49_income = pivot_and_uncount(income_df, income_cohort, ward_49_income)
-ward49_income_sample = sample_participants(ward49_income, 0.07)
+ward49_income_sample = sample_participants(ward49_income, "income_cohort", 0.03, 0.07)
 
 # combine wards into one table
 income_sample = rbind(ward29_income_sample, ward35_income_sample, ward36_income_sample, ward49_income_sample)
@@ -119,19 +133,19 @@ race_df <- read_csv("./source/race.csv")
 
 # ward 29
 ward29_race = pivot_and_uncount(race_df, race, ward_29)
-ward29_race_sample = sample_participants(ward29_race, 0.05)
+ward29_race_sample = sample_participants(ward29_race, "race", 0.01, 0.05)
 
 # ward 35
 ward35_race = pivot_and_uncount(race_df, race, ward_35)
-ward35_race_sample = sample_participants(ward35_race, 0.06)
+ward35_race_sample = sample_participants(ward35_race, "race", 0.02, 0.06)
 
 # ward 36
 ward36_race = pivot_and_uncount(race_df, race, ward_36)
-ward36_race_sample = sample_participants(ward36_race, 0.05)
+ward36_race_sample = sample_participants(ward36_race, "race", 0.01, 0.05)
 
 # ward 49
 ward49_race = pivot_and_uncount(race_df, race, ward_49)
-ward49_race_sample = sample_participants(ward49_race, 0.07)
+ward49_race_sample = sample_participants(ward49_race, "race", 0.03, 0.07)
 
 # combine wards into one table
 race_sample = rbind(ward29_race_sample, ward35_race_sample, ward36_race_sample, ward49_race_sample)

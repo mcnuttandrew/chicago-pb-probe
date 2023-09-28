@@ -1,29 +1,29 @@
 "education","ward","pop","part"
-"bachelor's",29,6191,310
-"bachelor's",35,9154,549
-"bachelor's",36,5281,264
-"bachelor's",49,13384,937
+"bachelor's",29,6191,222
+"bachelor's",35,9154,273
+"bachelor's",36,5281,110
+"bachelor's",49,13384,415
 "doctorate",29,58,3
-"doctorate",35,208,12
-"doctorate",36,311,16
-"doctorate",49,1066,75
-"high school",29,19904,995
-"high school",35,13054,783
-"high school",36,15687,784
-"high school",49,10131,709
-"less than high school",29,11341,567
-"less than high school",35,15447,927
-"less than high school",36,16463,823
-"less than high school",49,8371,586
-"master's",29,3124,156
-"master's",35,2965,178
-"master's",36,1967,98
-"master's",49,6558,459
-"professional school",29,405,20
-"professional school",35,572,34
-"professional school",36,259,13
-"professional school",49,1226,86
-"some college",29,16837,842
-"some college",35,10610,637
-"some college",36,11856,593
-"some college",49,12584,881
+"doctorate",35,208,8
+"doctorate",36,311,7
+"doctorate",49,1066,53
+"high school",29,19904,902
+"high school",35,13054,704
+"high school",36,15687,669
+"high school",49,10131,435
+"less than high school",29,11341,186
+"less than high school",35,15447,923
+"less than high school",36,16463,720
+"less than high school",49,8371,563
+"master's",29,3124,149
+"master's",35,2965,139
+"master's",36,1967,66
+"master's",49,6558,260
+"professional school",29,405,6
+"professional school",35,572,22
+"professional school",36,259,10
+"professional school",49,1226,76
+"some college",29,16837,437
+"some college",35,10610,218
+"some college",36,11856,143
+"some college",49,12584,438
