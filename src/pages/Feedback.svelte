@@ -17,7 +17,8 @@
       .then((x) => {
         features = x.features;
       });
-    fetch("./data/table_data_updated.json")
+    // fetch("./data/table_data_updated.json")
+    fetch("./data/demo_table_data.json")
       .then((x) => x.json())
       .then((x) => {
         tableData = x;
