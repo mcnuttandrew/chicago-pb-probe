@@ -1,7 +1,8 @@
 <script lang="ts">
   import ElicitHeader from "../lib/ElicitHeader.svelte";
   import { projects, buttonStyle } from "../lib/constants";
-  import SortableList from "svelte-sortable-list";
+  // import SortableList from "svelte-sortable-list";
+  import SortableList from "../lib/InsertSortList.svelte";
   import { store } from "../lib/store";
   $: sortOrder = $store.sortOrder;
   $: showNext = sortOrder.length === Object.keys(projects).length;
@@ -12,13 +13,12 @@
   <ElicitHeader />
   <div class="my-8">
     {#if !showNext}
-      <h1>
-        Order the following projects by your preference for them. 
+      <h1> 
         <b>
-          <i>You'll need to sort all of them to move on.</i>
+          <i>Please order the following projects by your preference for them.</i>
         </b>
       </h1>
-      <div class="italic h-20">Click each project below to add it to your order.</div>
+      <div class="italic h-20">Click each project below to begin ordering them.</div>
     {/if}
     <div class="flex flex-wrap justify-between">
       {#each Object.keys(projects).filter((x) => !sortOrder.find((y) => x === y)) as item}
