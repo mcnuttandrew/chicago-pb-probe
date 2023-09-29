@@ -49,7 +49,7 @@
         You have {format(",.2r")(budgetRemaining)}$ remaining
       </h1>
       {#if budgetRemaining < 0}
-        <h1 class={`${buttonStyle} bg-red-400 border-red-600`}>
+        <h1 class="border-red-600 border-2 rounded bg-red-400 px-8 py-4">
           You can not allocate more than $1 million total
         </h1>
       {/if}
