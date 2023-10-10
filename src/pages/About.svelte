@@ -17,7 +17,7 @@
     should be allocated.
   </h3>
 
-  <h3 class="text-lg text-sky-400">What happens after I vote?</h3>
+  <h3 class="text-lg text-400 font-bold">What happens after I vote?</h3>
 
   <p class="my-2">
     The Ward Alderperson
@@ -42,7 +42,7 @@
     within the budget.
   </p>
 
-  <h3 class="text-lg text-sky-400">Before proceeding, please input your User Id for the study.</h3>
+  <h3 class="text-lg text-400 font-bold">Before proceeding, please input your User Id for the study.</h3>
 
   <p class="italic">This will be provided by the interviewer.</p>
 
