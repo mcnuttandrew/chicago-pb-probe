@@ -245,7 +245,7 @@
         ry={2}
       />
       <text class="pointer-events-none">
-        These bars show the min each project asked for
+        These bars show the cost of each project.
       </text>
       <text x={175} text-anchor="middle" class="pointer-events-none" y={20}>
         Click anywhere to dismiss
