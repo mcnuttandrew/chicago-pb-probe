@@ -3,6 +3,10 @@
     import { quintOut } from "svelte/easing";
     import { crossfade } from "svelte/transition";
     import { flip } from "svelte/animate";
+    import { createEventDispatcher } from "svelte";
+    
+    // DISPATCH
+    const dispatch = createEventDispatcher();
   
     // FLIP ANIMATION
     const [send, receive] = crossfade({
@@ -22,6 +26,9 @@
         };
       }
     });
+
+    // SOURCE AND TARGET NAME FORMATTING
+    const trimName = name => name.indexOf(".") > -1 ? name.slice(3) : name
   
     // DRAG AND DROP
     let isOver = false;
@@ -30,7 +37,9 @@
         ? node.dataset
         : getDraggedParent(node.parentNode);
     const start = ev => {
+      console.log("start event", ev);
       ev.dataTransfer.setData("source", ev.target.dataset.index);
+      ev.dataTransfer.setData("sourceName", ev.target.childNodes[0].childNodes[0].innerHTML);
     };
     const over = ev => {
       ev.preventDefault();
@@ -42,27 +51,83 @@
       if (isOver === dragged.id) isOver = false;
     };
     const drop = ev => {
+      // are we changing lists?
+      let sourceName = trimName(ev.dataTransfer.getData("sourceName"));
+      let target = ev.target.parentElement;
+      let targetName = trimName(target.childNodes[0].innerHTML)
+      let targetInOrdered = Object.values(target.classList).some(cl => cl === "ordered");
+      console.log("drag event", ev);
+      console.log("source", sourceName);
+      console.log("target", targetName);
+      console.log("target ordered?", targetInOrdered);
+      
+      // where are we moving within lists?
       isOver = false;
       ev.preventDefault();
       let dragged = getDraggedParent(ev.target);
       let from = ev.dataTransfer.getData("source");
       let to = dragged.index;
-      reorder({ from, to });
-    };
-  
-    // DISPATCH REORDER
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
-    const reorder = ({ from, to }) => {
-      let newList = [...list];
 
-      // AMK: modification changes the sort operation from a swap to an insert
-      // newList[from] = [newList[to], (newList[to] = newList[from])][0];
-      const movedItem = newList.splice(from, 1)[0];
-      newList.splice(to, 0, movedItem);
+      reorder(targetInOrdered, sourceName, targetName, from, to)
+        .then(newList => {
+          console.log("newList", newList);
+          dispatch("sort", newList);
+        });
+      
+      // // reorder
+      // if (targetInOrdered && group === "unordered") {
+      //   let newList = [...switchToOrdered(sourceName, targetName, list)];
+      //   console.log("New list", newList);
+        
+      //   dispatch("sort", newList);
+      // } else if (!targetInOrdered && group === "ordered") {
+      //   let newList = [...switchToUnordered(sourceName, targetName, list)];
+      //   console.log("New list", newList);
+        
+      //   dispatch("sort", newList);
+      // } else {
+      //   let newList = [...list];
+        
+      //   // insert sort
+      //   const movedItem = newList.splice(from, 1)[0];
+      //   newList.splice(to, 0, movedItem);
 
-      dispatch("sort", newList);
+      //   dispatch("sort", newList);
+      // }
+
+      // reorder({ from, to });
     };
+
+    // reorder
+    async function reorder(targetInOrdered, sourceName, targetName, from, to) {
+      let newList;
+      if (targetInOrdered && group === "unordered") {
+        newList = [...switchToOrdered(sourceName, targetName, list)];
+        console.log("New list", newList);
+      } else if (!targetInOrdered && group === "ordered") {
+        newList = [...switchToUnordered(sourceName, targetName, list)];
+        console.log("New list", newList);
+      } else {
+        newList = [...list];
+        // insert sort
+        const movedItem = newList.splice(from, 1)[0];
+        newList.splice(to, 0, movedItem);
+      }
+      return await Promise.resolve(newList);
+    }
+    // // DISPATCH REORDER
+    // import { createEventDispatcher } from "svelte";
+    // const dispatch = createEventDispatcher();
+    // const reorder = ({ from, to }) => {
+    //   let newList = [...list];
+    //   console.log("wft is the list here?", list, to, from);
+
+    //   // AMK: modification changes the sort operation from a swap to an insert
+    //   const movedItem = newList.splice(from, 1)[0];
+    //   newList.splice(to, 0, movedItem);
+
+    //   dispatch("sort", newList);
+    // };
   
     // UTILS
     const getKey = item => (key ? item[key] : item);
@@ -70,6 +135,9 @@
     // PROPS
     export let list;
     export let key;
+    export let group;
+    export let switchToOrdered;
+    export let switchToUnordered;
   </script>
   
   <style>
@@ -92,7 +160,7 @@
         <li
           data-index={index}
           data-id={JSON.stringify(getKey(item))}
-          draggable="true"
+          draggable={(getKey(item) !== "Placeholder")}
           on:dragstart={start}
           on:dragover={over}
           on:dragleave={leave}
