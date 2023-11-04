@@ -18,6 +18,8 @@
   const innerWidth = width - margin.left - margin.right;
   const MILLION = 1000000;
 
+  const GRANULARITY = 10000; // units of allocation change (in dollars)
+
   let state: "dragging" | "reading" = "reading";
 
   $: xScale = scaleBand().domain(sortOrder).range([0, innerWidth]).padding(0.1);
@@ -79,7 +81,7 @@
             // @ts-ignore
             const bbox = e.target.getBoundingClientRect();
             const yVal = e.y - bbox.y;
-            setAllocationValue(key, clamp(Math.round(yScale.invert(innerHeight - yVal)), 0, MILLION));
+            setAllocationValue(key, clamp(Math.round(Math.round(yScale.invert(innerHeight - yVal) / GRANULARITY) * GRANULARITY), 0, MILLION));
           }
         }}
         on:mouseup={() => {
