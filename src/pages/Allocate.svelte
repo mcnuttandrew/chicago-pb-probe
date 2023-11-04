@@ -45,12 +45,13 @@
     </h1>
 
     <div class="flex flex-col w-full items-center">
-      <h1 class="text-lg">
-        You have {format(",.2r")(budgetRemaining)}$ remaining
-      </h1>
       {#if budgetRemaining < 0}
         <h1 class="border-red-600 border-2 rounded bg-red-400 px-8 py-4">
-          You can not allocate more than $1 million total
+          You have ${format(",.2r")(budgetRemaining)} remaining. Please reduce spending.
+        </h1>
+      {:else}
+        <h1 class="border-gray-600 border-2 rounded bg-400 px-8 py-4">
+          You have ${format(",.2r")(budgetRemaining)} remaining.
         </h1>
       {/if}
     </div>
