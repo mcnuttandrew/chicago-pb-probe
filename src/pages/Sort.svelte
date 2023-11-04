@@ -64,14 +64,15 @@
               </a>
             {:else}
               <div class="italic">
-                Drag boxes from this list into the one on the right
+                Drag projects from this list into the one on the right. You
+                must order all projects to move on.
               </div>
             {/if}
           {:else}
             <div class="text-2xl font-bold text-center">Sorted</div>
             <div class="italic">
-              Higher in the list means more important. Drag them to reorder
-              their importance
+              Higher in the list means more important. Drag projects to order
+              them in terms of importance.
             </div>
           {/if}
         </div>
@@ -93,7 +94,7 @@
           on:finalize={(e) => handleDndFinalizeCards(column.id, e)}
         >
           {#if column.items.length === 0}
-            <div class=" pointer-events-none mt-36">
+            <div class=" pointer-events-none mt-36 italic" style="background-color: lightgrey; padding: 1em">
               {#if column.name === "unsorted"}
                 You've finished adding projects! Drag them to rearrange your
                 preferences.
@@ -111,11 +112,14 @@
             >
               <span class="font-bold text-center">
                 {#if column.name === "sorted"}
-                  {#if sortOrder.findIndex((x) => x === item.name) === 0}
+                  <!-- {#if sortOrder.findIndex((x) => x === item.name) === 0}
                     Most important:
                   {/if}
                   {#if sortOrder.findIndex((x) => x === item.name) === sortOrder.length - 1}
                     Least important:
+                  {/if} -->
+                  {#if sortOrder.findIndex((x) => x === item.name) !== -1}
+                    {`${sortOrder.findIndex((x) => x === item.name) + 1}. `}
                   {/if}
                   <div
                     class="float-right"
