@@ -19,6 +19,7 @@ export const handler = (event, context, callback) => {
     errorResponse(callback, "Bad submit");
     return;
   }
+  console.log("ests", submission, DB_URL, process.env);
   MongoClient.connect(`${DB_URL}/${DB_NAME}`)
     .then((connection) => {
       const db = connection.db(DB_NAME);
