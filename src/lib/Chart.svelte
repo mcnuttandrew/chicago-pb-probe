@@ -18,7 +18,7 @@
   const innerWidth = width - margin.left - margin.right;
   const MILLION = 1000000;
 
-  const GRANULARITY = 10000; // units of allocation change (in dollars)
+  const GRANULARITY = 500; // units of allocation change (in dollars)
 
   let state: "dragging" | "reading" = "reading";
 

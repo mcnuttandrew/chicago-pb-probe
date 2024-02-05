@@ -35,7 +35,7 @@ export const projects: Record<
   "Picnic Tables": {
     max: 45000,
     min: 12500,
-    est: 35700,
+    est: 36000, // was 35700 before granularity change
     description:
       "This proposal includes new pool tables with umbrellas as well as picnic tables outside of the California Park pool area, and ADA accessible picnic tables near the softball field to create pleasant gathering spots for all.",
     category: "Parks and Environment",
