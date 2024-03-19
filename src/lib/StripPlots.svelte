@@ -52,7 +52,7 @@
           })`}
         >
           <line
-            y1={1}
+            y1={0}
             y2={0}
             x1={3}
             x2={xScale.bandwidth() - 3}
