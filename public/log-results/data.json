@@ -1,0 +1,585 @@
+[{
+  "_id": {
+    "$oid": "64baef18713a17f637304de5"
+  },
+  "sortOrder": [
+    "Curb Cuts",
+    "School Improvements",
+    "Street Resurfacing",
+    "Bike Lanes",
+    "Street Murals",
+    "Street Lights",
+    "Picnic Tables",
+    "Food Pantry"
+  ],
+  "allocations": {
+    "Curb Cuts": 106515.09602864584,
+    "School Improvements": 483181.7626953125,
+    "Street Resurfacing": 214109.90397135424,
+    "Bike Lanes": 196193.23730468738,
+    "Street Murals": 0,
+    "Street Lights": 0,
+    "Picnic Tables": 0,
+    "Food Pantry": 0
+  },
+  "postCheckAllocations": {
+    "Curb Cuts": 40000,
+    "School Improvements": 500000,
+    "Street Resurfacing": 267499.99999999994,
+    "Bike Lanes": 75000,
+    "Street Murals": 0,
+    "Street Lights": 115000,
+    "Picnic Tables": 0,
+    "Food Pantry": 2500
+  },
+  "demographics": {
+    "What is your age?": "25 to 34 years old",
+    "How would you identify your race or ethnicity?": "Middle eastern",
+    "What is your estimated yearly household income?": "$100,000-$149,999",
+    "What is your highest level of education?": "Doctorate"
+  },
+  "userId": "a01",
+  "createdAt": {
+    "$date": "2023-07-21T20:48:24.897Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64c2e1addebe4887df33cdb3"
+  },
+  "sortOrder": [
+    "Street Lights",
+    "Curb Cuts",
+    "School Improvements",
+    "Street Resurfacing",
+    "Bike Lanes",
+    "Food Pantry",
+    "Street Murals",
+    "Picnic Tables"
+  ],
+  "allocations": {
+    "Street Lights": 270000,
+    "Curb Cuts": 243333.33333333334,
+    "School Improvements": 226666.66666666666,
+    "Street Resurfacing": 163333.33333333334,
+    "Bike Lanes": 120000,
+    "Food Pantry": 83333.33333333333,
+    "Street Murals": 46666.66666666651,
+    "Picnic Tables": -153333.3333333333
+  },
+  "postCheckAllocations": {
+    "Street Lights": 126666.66666666667,
+    "Curb Cuts": 53333.333333333336,
+    "School Improvements": 377500,
+    "Street Resurfacing": 353333.33333333343,
+    "Bike Lanes": 75000,
+    "Food Pantry": 2500,
+    "Street Murals": 11666.666666666511,
+    "Picnic Tables": 0
+  },
+  "demographics": {
+    "What is your age?": "35 to 44 years old",
+    "How would you identify your race or ethnicity?": "Asian",
+    "What is your estimated yearly household income?": "$100,000-$149,999",
+    "What is your highest level of education?": "Doctorate"
+  },
+  "userId": "a02",
+  "createdAt": {
+    "$date": "2023-07-27T21:29:17.957Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f10515d5537915201e8a67"
+  },
+  "sortOrder": [
+    "Bike Lanes",
+    "School Improvements",
+    "Food Pantry",
+    "Curb Cuts",
+    "Street Lights",
+    "Street Murals",
+    "Picnic Tables",
+    "Street Resurfacing"
+  ],
+  "allocations": {
+    "Bike Lanes": 190000,
+    "School Improvements": 273333,
+    "Food Pantry": 80000,
+    "Curb Cuts": 160000,
+    "Street Lights": 66667,
+    "Street Murals": 0,
+    "Picnic Tables": 0,
+    "Street Resurfacing": 230000
+  },
+  "postCheckAllocations": {
+    "Bike Lanes": 190000,
+    "School Improvements": 273333,
+    "Food Pantry": 80000,
+    "Curb Cuts": 160000,
+    "Street Lights": 66667,
+    "Street Murals": 0,
+    "Picnic Tables": 0,
+    "Street Resurfacing": 230000
+  },
+  "demographics": {
+    "What is your age?": "25 to 34 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "$60,000-$99,999",
+    "What is your highest level of education?": "Bachelor"
+  },
+  "userId": "p01",
+  "createdAt": {
+    "$date": "2023-08-31T21:24:37.563Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6500ac77ebb6533c34d0bddf"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "School Improvements",
+    "Curb Cuts",
+    "Street Murals",
+    "Bike Lanes",
+    "Street Lights",
+    "Picnic Tables",
+    "Street Resurfacing"
+  ],
+  "allocations": {
+    "Food Pantry": 320000,
+    "School Improvements": 223333,
+    "Curb Cuts": 286667,
+    "Street Murals": 170000,
+    "Bike Lanes": 0,
+    "Street Lights": 0,
+    "Picnic Tables": 0,
+    "Street Resurfacing": 0
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 2500,
+    "School Improvements": 500000,
+    "Curb Cuts": 40000,
+    "Street Murals": 75000,
+    "Bike Lanes": 75000,
+    "Street Lights": 271800,
+    "Picnic Tables": 35700,
+    "Street Resurfacing": 0
+  },
+  "demographics": {
+    "What is your age?": "35 to 44 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "More than $150,000",
+    "What is your highest level of education?": "Professional school"
+  },
+  "userId": "p02",
+  "createdAt": {
+    "$date": "2023-09-12T18:22:47.372Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65207c192949761ee2efc81c"
+  },
+  "sortOrder": [
+    "Street Resurfacing",
+    "Bike Lanes",
+    "School Improvements",
+    "Curb Cuts",
+    "Food Pantry",
+    "Picnic Tables",
+    "Street Lights",
+    "Street Murals"
+  ],
+  "allocations": {
+    "Street Resurfacing": 260000,
+    "Bike Lanes": 186667,
+    "School Improvements": 123333,
+    "Curb Cuts": 76667,
+    "Food Pantry": 193333,
+    "Picnic Tables": 106667,
+    "Street Lights": 30000,
+    "Street Murals": 23333
+  },
+  "postCheckAllocations": {
+    "Street Resurfacing": 623333,
+    "Bike Lanes": 0,
+    "School Improvements": 0,
+    "Curb Cuts": 376667,
+    "Food Pantry": 0,
+    "Picnic Tables": 0,
+    "Street Lights": 0,
+    "Street Murals": 0
+  },
+  "demographics": {
+    "What is your age?": "14 to 17 years old",
+    "How would you identify your race or ethnicity?": "st",
+    "What is your estimated yearly household income?": "$10,000-$24,999",
+    "What is your highest level of education?": "Less than high school"
+  },
+  "userId": "a04",
+  "createdAt": {
+    "$date": "2023-10-06T21:28:57.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6525b196700445148832a520"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "School Improvements",
+    "Street Lights",
+    "Curb Cuts",
+    "Bike Lanes",
+    "Street Resurfacing",
+    "Picnic Tables",
+    "Street Murals"
+  ],
+  "allocations": {
+    "Food Pantry": 411110,
+    "School Improvements": 308889,
+    "Street Lights": 202222,
+    "Curb Cuts": 25556,
+    "Bike Lanes": 25556,
+    "Street Resurfacing": 12222,
+    "Picnic Tables": 8889,
+    "Street Murals": 5556
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 41111,
+    "School Improvements": 500000,
+    "Street Lights": 202222,
+    "Curb Cuts": 40000,
+    "Bike Lanes": 75000,
+    "Street Resurfacing": 30967,
+    "Picnic Tables": 35700,
+    "Street Murals": 75000
+  },
+  "demographics": {
+    "What is your age?": "35 to 44 years old",
+    "How would you identify your race or ethnicity?": "Asian",
+    "What is your estimated yearly household income?": "$100,000-$149,999",
+    "What is your highest level of education?": "Doctorate"
+  },
+  "userId": "a03",
+  "createdAt": {
+    "$date": "2023-10-10T20:18:30.599Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6526da22b0eb8efcaf0854e0"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "Picnic Tables",
+    "Bike Lanes",
+    "Street Murals",
+    "School Improvements",
+    "Street Resurfacing",
+    "Curb Cuts",
+    "Street Lights"
+  ],
+  "allocations": {
+    "Food Pantry": 130000,
+    "Picnic Tables": 343333,
+    "Bike Lanes": 176667,
+    "Street Murals": 350000,
+    "School Improvements": 0,
+    "Street Resurfacing": 0,
+    "Curb Cuts": 0,
+    "Street Lights": 0
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 2500,
+    "Picnic Tables": 35700,
+    "Bike Lanes": 75000,
+    "Street Murals": 196800,
+    "School Improvements": 60000,
+    "Street Resurfacing": 475000,
+    "Curb Cuts": 40000,
+    "Street Lights": 115000
+  },
+  "demographics": {
+    "What is your age?": "14 to 17 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "$25,000-$39,999",
+    "What is your highest level of education?": "Some college"
+  },
+  "userId": "a05",
+  "createdAt": {
+    "$date": "2023-10-11T17:23:46.106Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "654557e24d932d421a840783"
+  },
+  "sortOrder": [
+    "School Improvements",
+    "Bike Lanes",
+    "Curb Cuts",
+    "Street Lights",
+    "Food Pantry",
+    "Street Murals",
+    "Street Resurfacing",
+    "Picnic Tables"
+  ],
+  "allocations": {
+    "School Improvements": 416667,
+    "Bike Lanes": 216667,
+    "Curb Cuts": 159999,
+    "Street Lights": 66667,
+    "Food Pantry": 66667,
+    "Street Murals": 30000,
+    "Street Resurfacing": 43333,
+    "Picnic Tables": 0
+  },
+  "postCheckAllocations": {
+    "School Improvements": 500000,
+    "Bike Lanes": 75000,
+    "Curb Cuts": 170000,
+    "Street Lights": 115000,
+    "Food Pantry": 66667,
+    "Street Murals": 30000,
+    "Street Resurfacing": 43333,
+    "Picnic Tables": 0
+  },
+  "demographics": {
+    "What is your age?": "35 to 44 years old",
+    "How would you identify your race or ethnicity?": "Hispanic or Latino/a",
+    "What is your estimated yearly household income?": "$60,000-$99,999",
+    "What is your highest level of education?": "Professional school"
+  },
+  "userId": "p03",
+  "createdAt": {
+    "$date": "2023-11-03T20:28:18.228Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6580710072298984bd386fdd"
+  },
+  "sortOrder": [
+    "Street Lights",
+    "Food Pantry",
+    "Street Resurfacing",
+    "Picnic Tables",
+    "Curb Cuts",
+    "Bike Lanes",
+    "Street Murals",
+    "School Improvements"
+  ],
+  "allocations": {
+    "Street Lights": 190000,
+    "Food Pantry": 30000,
+    "Street Resurfacing": 390000,
+    "Picnic Tables": 40000,
+    "Curb Cuts": 40000,
+    "Bike Lanes": 190000,
+    "Street Murals": 120000,
+    "School Improvements": 0
+  },
+  "postCheckAllocations": {
+    "Street Lights": 115000,
+    "Food Pantry": 2500,
+    "Street Resurfacing": 480000,
+    "Picnic Tables": 35700,
+    "Curb Cuts": 40000,
+    "Bike Lanes": 190000,
+    "Street Murals": 75000,
+    "School Improvements": 61800
+  },
+  "demographics": {
+    "What is your age?": "25 to 34 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "More than $150,000",
+    "What is your highest level of education?": "Bachelor"
+  },
+  "userId": "p04",
+  "createdAt": {
+    "$date": "2023-12-18T16:19:12.820Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65c14f0ea22e002cb4f9cf9f"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "Curb Cuts",
+    "Street Murals",
+    "Bike Lanes",
+    "Street Lights",
+    "Street Resurfacing",
+    "School Improvements",
+    "Picnic Tables"
+  ],
+  "allocations": {
+    "Food Pantry": 253500,
+    "Curb Cuts": 276500,
+    "Street Murals": 293500,
+    "Bike Lanes": 93500,
+    "Street Lights": 76500,
+    "Street Resurfacing": 6500,
+    "School Improvements": 0,
+    "Picnic Tables": 0
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 253500,
+    "Curb Cuts": 276500,
+    "Street Murals": 293500,
+    "Bike Lanes": 93500,
+    "Street Lights": 76500,
+    "Street Resurfacing": 6500,
+    "School Improvements": 0,
+    "Picnic Tables": 0
+  },
+  "demographics": {
+    "What is your age?": "35 to 44 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "$60,000-$99,999",
+    "What is your highest level of education?": "Master"
+  },
+  "userId": "p05",
+  "createdAt": {
+    "$date": "2024-02-05T21:11:42.097Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e0a0f9fc2c1e0bd618e78c"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "School Improvements",
+    "Picnic Tables",
+    "Curb Cuts",
+    "Street Lights",
+    "Street Resurfacing",
+    "Bike Lanes",
+    "Street Murals"
+  ],
+  "allocations": {
+    "Food Pantry": 106500,
+    "School Improvements": 296500,
+    "Picnic Tables": 46500,
+    "Curb Cuts": 284000,
+    "Street Lights": 266500,
+    "Street Resurfacing": 0,
+    "Bike Lanes": 0,
+    "Street Murals": 0
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 260000,
+    "School Improvements": 538500,
+    "Picnic Tables": 46500,
+    "Curb Cuts": 40000,
+    "Street Lights": 115000,
+    "Street Resurfacing": 0,
+    "Bike Lanes": 0,
+    "Street Murals": 0
+  },
+  "demographics": {
+    "What is your age?": "14 to 17 years old",
+    "How would you identify your race or ethnicity?": "I prefer not to say",
+    "What is your estimated yearly household income?": "$10,000-$24,999",
+    "What is your highest level of education?": "Less than high school"
+  },
+  "userId": "a07",
+  "createdAt": {
+    "$date": "2024-02-29T15:21:29.538Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e7700095aebb70507b50b8"
+  },
+  "sortOrder": [
+    "Street Resurfacing",
+    "Bike Lanes",
+    "Street Lights",
+    "School Improvements",
+    "Curb Cuts",
+    "Food Pantry",
+    "Picnic Tables",
+    "Street Murals"
+  ],
+  "allocations": {
+    "Street Resurfacing": 230000,
+    "Bike Lanes": 153500,
+    "Street Lights": 153500,
+    "School Improvements": 336000,
+    "Curb Cuts": 53500,
+    "Food Pantry": 23500,
+    "Picnic Tables": 30000,
+    "Street Murals": 20000
+  },
+  "postCheckAllocations": {
+    "Street Resurfacing": 306500,
+    "Bike Lanes": 0,
+    "Street Lights": 115000,
+    "School Improvements": 500000,
+    "Curb Cuts": 40000,
+    "Food Pantry": 2500,
+    "Picnic Tables": 36000,
+    "Street Murals": 0
+  },
+  "demographics": {
+    "What is your age?": "45 to 54 years old",
+    "How would you identify your race or ethnicity?": "White",
+    "What is your estimated yearly household income?": "More than $150,000",
+    "What is your highest level of education?": "Doctorate"
+  },
+  "userId": "a08",
+  "createdAt": {
+    "$date": "2024-03-05T19:18:24.412Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ef0597035bbac645634af3"
+  },
+  "sortOrder": [
+    "Food Pantry",
+    "School Improvements",
+    "Street Lights",
+    "Bike Lanes",
+    "Curb Cuts",
+    "Street Murals",
+    "Picnic Tables",
+    "Street Resurfacing"
+  ],
+  "allocations": {
+    "Food Pantry": 223500,
+    "School Improvements": 503500,
+    "Street Lights": 93500,
+    "Bike Lanes": 120000,
+    "Curb Cuts": 59500,
+    "Street Murals": 0,
+    "Picnic Tables": 0,
+    "Street Resurfacing": 0
+  },
+  "postCheckAllocations": {
+    "Food Pantry": 2500,
+    "School Improvements": 503500,
+    "Street Lights": 115000,
+    "Bike Lanes": 75000,
+    "Curb Cuts": 40000,
+    "Street Murals": 75000,
+    "Picnic Tables": 36000,
+    "Street Resurfacing": 153000
+  },
+  "demographics": {
+    "What is your age?": "45 to 54 years old",
+    "How would you identify your race or ethnicity?": "Hispanic or Latino/a",
+    "What is your estimated yearly household income?": "I prefer not to say",
+    "What is your highest level of education?": "Doctorate"
+  },
+  "userId": "a06",
+  "createdAt": {
+    "$date": "2024-03-11T13:22:31.225Z"
+  }
+}]
