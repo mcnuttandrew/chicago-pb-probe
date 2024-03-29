@@ -1,0 +1,164 @@
+1
+00:00:00,080 --> 00:00:05,760
+This is a demo of the design probe used in our 
+interviews for the IEEE VIS 2024 submission, "What  
+
+2
+00:00:05,760 --> 00:00:11,560
+can interactive visualization do for participatory 
+budgeting in Chicago?" Hereafter, we refer to  
+
+3
+00:00:11,560 --> 00:00:17,760
+participatory budgeting as PB. Participants first 
+landed on this page which gives them information  
+
+4
+00:00:17,760 --> 00:00:22,920
+about the PB process in Chicago and gives the 
+opportunity to enter a user ID for logging  
+
+5
+00:00:22,920 --> 00:00:30,400
+interaction data. Our probe elicits preferences 
+for proposed municipal projects in three stages:  
+
+6
+00:00:30,400 --> 00:00:36,800
+sorting, allocating, and checking allocations. 
+On the sort page, participants are introduced  
+
+7
+00:00:36,800 --> 00:00:42,680
+to the proposed projects on the PB ballot. We 
+pulled these projects descriptions and their  
+
+8
+00:00:42,680 --> 00:00:51,520
+costs (which we reveal later) from a synthesis of 
+actual PB ballots from previous years in Chicago.
+
+9
+00:00:51,520 --> 00:00:59,920
+Participants can order and reorder 
+projects using a flexible drag interaction.
+
+10
+00:01:14,280 --> 00:01:20,560
+When the participant is happy with their sort 
+order for all projects, they can move on.
+
+11
+00:01:20,560 --> 00:01:25,400
+On the allocation page, participants are asked 
+to draw a distribution of funding by dragging  
+
+12
+00:01:25,400 --> 00:01:49,680
+on the bars in the chart. Projects appear in 
+the short order from the the previous page.
+
+13
+00:01:49,680 --> 00:01:54,920
+Participants can use the "clear" and "fill 
+up" buttons to fine-tune their allocations,  
+
+14
+00:01:54,920 --> 00:01:59,840
+exactly reaching a total 
+budget amount of $1 million.
+
+15
+00:02:09,800 --> 00:02:14,880
+On the check allocations page, the estimated 
+cost of each project is revealed as rule  
+
+16
+00:02:14,880 --> 00:02:17,960
+markings colored to indicate which 
+projects have received sufficient  
+
+17
+00:02:17,960 --> 00:02:24,160
+funding. The participant's allocations from 
+the previous page persist. Participants have  
+
+18
+00:02:24,160 --> 00:02:28,840
+the option of revising their allocation 
+now that costs are known. Now a "set to  
+
+19
+00:02:28,840 --> 00:02:39,360
+cost" button appears below each bar to 
+aid in hitting the exact cost estimate.
+
+20
+00:02:39,360 --> 00:02:41,520
+Participants do not have enough money to fund all  
+
+21
+00:02:41,520 --> 00:02:48,680
+projects fully so they have 
+some hard choices to make.
+
+22
+00:02:48,680 --> 00:02:54,880
+Participants fill out an 
+optional demographic survey.
+
+23
+00:02:54,880 --> 00:03:00,240
+The final page of the application provides 
+a dashboard of simulated voting results. The  
+
+24
+00:03:00,240 --> 00:03:07,200
+heatmap shows demographic data about voters in 
+each ward versus the census. Participants can  
+
+25
+00:03:07,200 --> 00:03:17,840
+select different Wards to compare by clicking 
+the map or by using the drop- down menu.
+
+26
+00:03:17,840 --> 00:03:24,520
+They can also view vote and census counts 
+rather than normalized percentages. This  
+
+27
+00:03:24,520 --> 00:03:29,760
+emphasizes how many people in the ward have 
+voted rather than demographic representation.
+
+28
+00:03:31,400 --> 00:03:36,920
+Participants can also view how people 
+voted within and across wards. The strip  
+
+29
+00:03:36,920 --> 00:03:42,200
+plot shows final allocations for categories 
+of PB projects such as biking and transit  
+
+30
+00:03:42,200 --> 00:03:47,680
+or streets and sidewalks, with each mark 
+representing the allocations of one voter.  
+
+31
+00:03:47,680 --> 00:03:52,600
+PB projects are binned into categories 
+to facilitate comparisons across wards,  
+
+32
+00:03:52,600 --> 00:03:56,240
+where residents will have voted 
+on different sets of projects. Our  
+
+33
+00:03:56,240 --> 00:04:01,800
+intention was that voters might return to a 
+page like this to monitor election results
+
