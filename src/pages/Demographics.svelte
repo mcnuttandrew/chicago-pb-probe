@@ -70,29 +70,31 @@
   });
 
   const submit = (data) => {
-    return fetch("/.netlify/functions/catch", {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: { "Content-Type": "application/json" },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(data),
-    })
-      .then((x) => x.json())
-      .catch((e) => {
-        console.log(e);
-      });
+    // disable submit
+    // return fetch("/.netlify/functions/catch", {
+    //   method: "POST",
+    //   mode: "cors",
+    //   cache: "no-cache",
+    //   credentials: "same-origin",
+    //   headers: { "Content-Type": "application/json" },
+    //   redirect: "follow",
+    //   referrerPolicy: "no-referrer",
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((x) => x.json())
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
   };
 </script>
 
 <div class="flex flex-col">
   <p>
     <!-- Next we have a handful of demographics questions for you to answer. -->
-    <b>Please answer the following demographic questions.</b> We will use this information to provide 
-    transparency about who is participating in the budgeting process in each ward.
-    If you feel uncomfortable providing this information, you may click "I prefer not to say".
+    <b>Please answer the following demographic questions.</b>
+     We will use this information to provide transparency about who is participating
+    in the budgeting process in each ward. If you feel uncomfortable providing this
+    information, you may click "I prefer not to say".
   </p>
   {#each questions as { question, options }, idx}
     <div class="flex flex-col my-4">
